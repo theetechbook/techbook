@@ -1,6 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+
+    //Kotlin kapt
+    id 'kotlin-kapt'
+
+    //Parcelize for Room
+    id "kotlin-parcelize"
+
+    //SafeArgs for Navigation
+    id 'androidx.navigation.safeargs.kotlin'
+
+    //Dagger Hilt Plugin
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -15,6 +27,14 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        //View Binding
+        viewBinding = true
+
+        //Data Binding
+        dataBinding = true
     }
 
     buildTypes {
@@ -33,6 +53,60 @@ android {
 }
 
 dependencies {
+
+    //Material Design Components
+    implementation 'com.google.android.material:material:<version>'
+
+    //Navigation Controller
+    def nav_version = "2.3.5"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //RecyclerView
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+
+    //Activity KTX
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+
+    //Fragment KTX
+    implementation("androidx.fragment:fragment-ktx:1.4.0")
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+
+    //Moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
+
+    //OKhttp
+    implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
+
+    // Retrofit with Moshi Converter
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+    //Coil
+    implementation "io.coil-kt:coil:1.4.0"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+    // Room
+    def room_version = "2.3.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    //Dagger Hilt
+    implementation 'com.google.dagger:hilt-android:2.40.3'
+    kapt 'com.google.dagger:hilt-compiler:2.40.3'
+
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.7.0'
