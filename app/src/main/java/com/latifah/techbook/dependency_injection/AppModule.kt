@@ -2,8 +2,8 @@ package com.latifah.techbook.dependency_injection
 
 import android.content.Context
 import androidx.room.Room
-import com.latifah.techbook.constants.Constants.BASE_URL
-import com.latifah.techbook.constants.Constants.TECHBOOK_DATABASE_NAME
+import com.latifah.techbook.util.Constants.BASE_URL
+import com.latifah.techbook.util.Constants.TECHBOOK_DATABASE_NAME
 import com.latifah.techbook.database.TechbookDB
 import com.latifah.techbook.network.TechEventApiService
 import com.squareup.moshi.Moshi
@@ -25,7 +25,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideDogDatabase(
+    fun provideTechbookDatabase(
         @ApplicationContext app: Context
     ) = Room.databaseBuilder(
         app,
@@ -35,7 +35,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideDogDao(db: TechbookDB) = db.getTechbookDao()
+    fun provideTechbookDao(db: TechbookDB) = db.getTechbookDao()
 
     @Singleton
     @Provides
@@ -53,7 +53,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideDogImageApi(
+    fun provideTechEventApi(
         moshi: Moshi,
         networkLoggingInterceptor: HttpLoggingInterceptor
     ): TechEventApiService {
