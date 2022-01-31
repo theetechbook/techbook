@@ -21,7 +21,11 @@
         android:id="@+id/login"
         android:name="com.latifah.techbook.ui.fragments.Login"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
     <fragment
         android:id="@+id/register"
         android:name="com.latifah.techbook.ui.fragments.Register"
@@ -31,4 +35,9 @@
             android:id="@+id/action_register_to_login"
             app:destination="@id/login" />
     </fragment>
+    <fragment
+        android:id="@+id/homepage"
+        android:name="com.latifah.techbook.ui.fragments.Homepage"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

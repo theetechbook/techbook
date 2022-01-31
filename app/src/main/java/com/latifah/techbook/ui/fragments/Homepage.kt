@@ -11,12 +11,11 @@ import com.latifah.techbook.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Login.newInstance] factory method to
+ * Use the [Homepage.newInstance] factory method to
  * create an instance of this fragment.
  */
 
-class Login : Fragment() {
-
+class Homepage : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +29,11 @@ class Login : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // initialize variable, inflate layout
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         //buttons, actionables
-        view.findViewById<Button>(R.id.login_button).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_login_to_homepage)
-        }
 
         // return
         return view
     }
-
 }
