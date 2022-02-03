@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation.xml"
+    app:startDestination="@id/dashboard">
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.latifah.techbook.ui.fragments.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/events"
+        android:name="com.latifah.techbook.ui.fragments.Events"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/likes"
+        android:name="com.latifah.techbook.ui.fragments.Likes"
+        android:label="fragment_likes"
+        tools:layout="@layout/fragment_likes" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.latifah.techbook.ui.fragments.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/newPost"
+        android:name="com.latifah.techbook.ui.fragments.NewPost"
+        android:label="fragment_new_post"
+        tools:layout="@layout/fragment_new_post" />
+</navigation>

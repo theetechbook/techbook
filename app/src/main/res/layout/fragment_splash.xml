@@ -29,4 +29,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button_splash" />
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="165dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="216dp"
+        android:src="@android:drawable/btn_star_big_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
