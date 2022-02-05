@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_launcher_background"
+        />
+    <item android:id="@+id/menu_events"
+        android:title="@string/near_me"
+        android:icon="@drawable/ic_launcher_background"
+        />
+    <item android:id="@+id/menu_new"
+        android:title="@string/new_post"
+        android:icon="@drawable/ic_launcher_background"
+        />
+    <item android:id="@+id/menu_likes"
+        android:title="@string/likes"
+        android:icon="@drawable/ic_launcher_background"
+        />
+    <item android:id="@+id/menu_profile"
+        android:title="@string/me"
+        android:icon="@drawable/ic_launcher_background"
+        />
+
+
+</menu>
