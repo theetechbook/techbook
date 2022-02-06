@@ -42,9 +42,7 @@ class Homepage : Fragment() {
         val newPostFrag = NewPost()
         val likesFrag = Likes()
         val profileFrag = Profile()
-
-        // This line of code was making app crash upon loading, but the fragments are still overlapping?
-        // setCurrentFragment(Homepage())
+        
 
         //buttons, actionables
 
