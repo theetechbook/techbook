@@ -11,7 +11,8 @@
         android:id="@+id/imageView"
         android:layout_width="269dp"
         android:layout_height="259dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="64dp"
+        android:background="#673AB7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,14 +32,14 @@
         android:id="@+id/add_caption"
         android:layout_width="266dp"
         android:layout_height="92dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Add a caption!"
         android:inputType="textMultiLine"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_media" />
 
@@ -49,6 +50,8 @@
         android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_caption" />
+        app:layout_constraintTop_toBottomOf="@+id/add_caption"
+        app:layout_constraintVertical_bias="0.375" />
 </androidx.constraintlayout.widget.ConstraintLayout>

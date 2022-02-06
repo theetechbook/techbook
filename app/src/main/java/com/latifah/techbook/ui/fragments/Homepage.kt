@@ -37,7 +37,7 @@ class Homepage : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         //fragment variables
-        val homeFrag = Homepage()
+        val dashFrag = Dashboard()
         val eventFrag = Events()
         val newPostFrag = NewPost()
         val likesFrag = Likes()
@@ -54,7 +54,7 @@ class Homepage : Fragment() {
         view.findViewById<BottomNavigationView>(R.id.bottom_nav).setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_home -> {
-                    setCurrentFragment(homeFrag)
+                    setCurrentFragment(dashFrag)
                     Log.i("Robin", "Navigated to Home Fragment")
                     true
                 }
