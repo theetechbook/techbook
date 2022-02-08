@@ -10,11 +10,6 @@ import androidx.navigation.Navigation
 import com.latifah.techbook.R
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [NewPost.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NewPost : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +28,7 @@ class NewPost : Fragment() {
 
         //buttons, actionables
         view.findViewById<Button>(R.id.confirm_new_media).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_newPost2_to_homepage)
+            Navigation.findNavController(view).navigate(R.id.action_newPost2_to_dashboard2)
         }
 
         // return

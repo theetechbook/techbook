@@ -40,13 +40,4 @@
         android:name="com.latifah.techbook.ui.fragments.Homepage"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/newPost2"
-        android:name="com.latifah.techbook.ui.fragments.NewPost"
-        android:label="fragment_new_post"
-        tools:layout="@layout/fragment_new_post" >
-        <action
-            android:id="@+id/action_newPost2_to_homepage"
-            app:destination="@id/homepage" />
-    </fragment>
 </navigation>
