@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "485223362103",
+    "project_id": "techbook-fd2ac",
+    "storage_bucket": "techbook-fd2ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485223362103:android:7d5c7b47b20d302f9659b2",
+        "android_client_info": {
+          "package_name": "com.latifah.techbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485223362103-4hs8ha20383ebrh28ufrrohptko3k7be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDLmocSzVHnfelyenlGvh3bFaCX3cFFV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485223362103-4hs8ha20383ebrh28ufrrohptko3k7be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

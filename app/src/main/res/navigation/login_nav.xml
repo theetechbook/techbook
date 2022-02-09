@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_login_to_homepage"
             app:destination="@id/homepage" />
+        <action
+            android:id="@+id/action_login_to_profile2"
+            app:destination="@id/profile2" />
     </fragment>
     <fragment
         android:id="@+id/register"
@@ -34,10 +37,28 @@
         <action
             android:id="@+id/action_register_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_register_to_profile2"
+            app:destination="@id/profile2" />
     </fragment>
     <fragment
         android:id="@+id/homepage"
         android:name="com.latifah.techbook.ui.fragments.Homepage"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profile2"
+        android:name="com.latifah.techbook.ui.fragments.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="firstName"
+            app:argType="string"/>
+        <argument
+            android:name="lastName"
+            app:argType="string"/>
+        <argument
+            android:name="userName"
+            app:argType="string"/>
+    </fragment>
 </navigation>

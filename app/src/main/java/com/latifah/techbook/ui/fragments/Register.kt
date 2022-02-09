@@ -1,14 +1,23 @@
 package com.latifah.techbook.ui.fragments
 
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.R
-
+import com.latifah.techbook.database.firebase.Firestore
+import com.latifah.techbook.database.models.User
+import com.latifah.techbook.databinding.FragmentRegisterBinding
 /**
  * A simple [Fragment] subclass.
  * Use the [Register.newInstance] factory method to
@@ -16,12 +25,14 @@ import com.latifah.techbook.R
  */
 
 class Register : Fragment() {
+    private var _binding: FragmentRegisterBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
+        // Initialize Firebase Auth
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
@@ -29,15 +40,70 @@ class Register : Fragment() {
     ): View? {
 
         // initialize variable, inflate layout
-        val view = inflater.inflate(R.layout.fragment_register, container, false)
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        //buttons, actionables
-        view.findViewById<Button>(R.id.register_button).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_register_to_login)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.registerButton.setOnClickListener {
+            registerUser()
+        }
+    }
+
+    private fun registerUser() {
+        when {
+            TextUtils.isEmpty(binding.editTextFirstName.text.toString().trim { it <= ' ' }) -> {
+                //should we come up with a better way to show an error?
+                Toast.makeText(activity, "First name field cannot be blank.", Toast.LENGTH_SHORT).show()
+            }
+            TextUtils.isEmpty(binding.editTextLastName.text.toString().trim { it <= ' ' }) -> {
+                //should we come up with a better way to show an error?
+                Toast.makeText(activity, "Last name field cannot be blank.", Toast.LENGTH_SHORT).show()
+            }
+            TextUtils.isEmpty(binding.editTextRegisterEmailAddress.text.toString().trim { it <= ' ' }) -> {
+                //should we come up with a better way to show an error?
+                Toast.makeText(activity, "Email field cannot be blank.", Toast.LENGTH_SHORT).show()
+            }
+            TextUtils.isEmpty(binding.editTextRegisterPassword.text.toString().trim { it <= ' ' }) -> {
+                //should we come up with a better way to show an error?
+                Toast.makeText(activity, "Password field cannot be blank.", Toast.LENGTH_SHORT).show()
+            }
+            TextUtils.isEmpty(binding.editTextUsername.text.toString().trim { it <= ' ' }) -> {
+                //should we come up with a better way to show an error?
+                Toast.makeText(activity, "UserName name field cannot be blank.", Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                val firstName : String = binding.editTextFirstName.text.toString().trim { it <= ' ' }
+                val lastName : String = binding.editTextLastName.text.toString().trim { it <= ' ' }
+                val email : String = binding.editTextRegisterEmailAddress.text.toString().trim { it <= ' ' }
+                val password : String = binding.editTextRegisterPassword.text.toString().trim { it <= ' '}
+                val userName : String = binding.editTextUsername.text.toString().trim { it <= ' ' }
+
+                //Create an instance and register a user with an email and password
+                auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val firebaseUser = auth.currentUser!!
+                            val registeredEmail = firebaseUser.email!! //I'm using the email that comes from firebase because I know that it's already been authenticated
+                            val user = User(firebaseUser.uid, firstName, lastName, registeredEmail, userName)
+                            Firestore().registerUser(user, this)
+                        }
+                        else {
+                            Log.d("register user", "registerUser: ${task.exception!!.message}")
+                            Toast.makeText(activity, task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+            }
         }
 
-        // return
-        return view
+    }
+
+    fun registerSuccess(user: User) {
+        Log.d("registerSuccess", "${user.userName}")
+        val action = RegisterDirections.actionRegisterToProfile2(user.firstName, user.lastName, user.userName)
+        findNavController().navigate(action)
     }
 
 }
