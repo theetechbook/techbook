@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.R
+import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.databinding.FragmentRegisterBinding
 /**
@@ -86,7 +87,7 @@ class Register : Fragment() {
                             val firebaseUser = auth.currentUser!!
                             val registeredEmail = firebaseUser.email!! //I'm using the email that comes from firebase because I know that it's already been authenticated
                             val user = User(firebaseUser.uid, firstName, lastName, registeredEmail, userName)
-                            registerSuccess(user)
+                            Firestore().registerUser(user, this)
                         }
                         else {
                             Log.d("register user", "registerUser: ${task.exception!!.message}")
@@ -100,6 +101,7 @@ class Register : Fragment() {
     }
 
     fun registerSuccess(user: User) {
+        Log.d("registerSuccess", "${user.userName}")
         val action = RegisterDirections.actionRegisterToProfile2(user.firstName, user.lastName, user.userName)
         findNavController().navigate(action)
     }
