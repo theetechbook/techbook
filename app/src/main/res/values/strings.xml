@@ -11,4 +11,6 @@
     <string name="me">Me</string>
     <string name="inbox">Inbox</string>
     <string name="exit">Logout</string>
+    <string name="Event">Title</string>
+    <string name="Location">Location</string>
 </resources>
