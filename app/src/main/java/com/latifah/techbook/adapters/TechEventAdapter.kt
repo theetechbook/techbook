@@ -10,7 +10,17 @@ import com.latifah.techbook.R
 import com.latifah.techbook.adapters.TechEventAdapter.ViewHolder
 import com.latifah.techbook.database.models.EventsToday
 
-class TechEventAdapter(var data: MutableList<EventsToday>, private val myListener:onItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
+class TechEventAdapter( val elist:MutableList<EventsToday>, private val myListener:onItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
+
+    private val eventNear = mutableListOf("developer Week",
+        "Hackaton", "Android Summitt", "Everything Teck",
+        "Facebook Meeting", "AfroTech", "GoogleMeet",
+        "Interactive Event")
+
+    private val location = mutableListOf("New York", "California",
+        "France", "UK",
+        "Atlanta", "Miami",
+        "New Jersey", "Ethopia")
 
 
     // Created a New Interface OnItemClick Listener
@@ -24,6 +34,11 @@ class TechEventAdapter(var data: MutableList<EventsToday>, private val myListene
     inner class ViewHolder(itemView: View, listener:TechEventAdapter.onItemClickListener): RecyclerView.ViewHolder(itemView){
         val eventName = itemView.findViewById<TextView>(R.id.txt)
         val eventLocation = itemView.findViewById<TextView>(R.id.sub_txt)
+        init{
+            itemView.setOnClickListener {
+                listener.onItemClick(bindingAdapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,17 +48,14 @@ class TechEventAdapter(var data: MutableList<EventsToday>, private val myListene
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val eList = data.get(position)
-        holder.eventName.text = eList.name
-        holder.eventLocation.text = eList.location
+        //val eventList = eList.get(position)
+        holder.eventName.text = eventNear[position]
+        holder.eventLocation.text = location[position]
 
-        holder.eventName.setOnClickListener{
-            myListener.onItemClick(position)
-        }
     }
 
     override fun getItemCount(): Int {
-      return  data.size
+      return  eventNear.size
     }
 
 }
