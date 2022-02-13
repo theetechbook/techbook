@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.util.WorkSourceUtil.add
@@ -22,8 +23,16 @@ class EventsList : Fragment() {
     private val binding get() = _binding!!
     private var listing = mutableListOf<EventsToday>()
 
+    private fun loadListing() {
+        listing = mutableListOf(
+            EventsToday("java", "great"),
+            EventsToday("Kotlin Expo", "New York"),
+            EventsToday("Python", "Atlanta"),
+            EventsToday("JavaScript", "Georgia"),
+            EventsToday("PHP", "California")
 
-
+        )
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,17 +45,26 @@ class EventsList : Fragment() {
         //binding.lifecycleOwner = viewLifecycleOwner
 
         val adapter = TechEventAdapter(listing,object: TechEventAdapter.onItemClickListener{
-            override fun onItemClick(index: Int) {
-                val action = EventsListDirections.actionEventsListToEvents()
+
+            override fun onItemClick(itemView: View?, position: Int) {
+               val eventtoday = listing[position].name
+
+                val action = EventsListDirections.actionEventsList2ToEvents2()
                 view.findNavController().navigate(action)
+
             }
 
         })
-        loadListing()
+
         // eventsView is the id of the RecyclerView in events_list_fragment xml
         binding.rcyview.layoutManager = LinearLayoutManager(requireContext())
         binding.rcyview.adapter = adapter
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadListing()
     }
 
     override fun onDestroy() {
@@ -54,16 +72,7 @@ class EventsList : Fragment() {
         _binding = null
     }
 
-    private fun loadListing(){
-        listing = mutableListOf(
-            EventsToday("java","great"),
-            EventsToday("Kotlin Expo", "New York"),
-            EventsToday("Python","Atlanta"),
-            EventsToday("JavaScript","Georgia"),
-            EventsToday("PHP","California")
 
-        )
-    }
 
 
 }

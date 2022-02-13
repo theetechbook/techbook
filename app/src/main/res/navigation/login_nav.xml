@@ -85,5 +85,14 @@
         android:id="@+id/events"
         android:name="com.latifah.techbook.ui.fragments.Events"
         android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events" >
+        <argument
+            android:name="message"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="locationcity"
+            app:argType="string"
+            android:defaultValue="default" />
+    </fragment>
 </navigation>

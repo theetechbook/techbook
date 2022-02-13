@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.latifah.techbook.databinding.FragmentProfileBinding
 /**
@@ -23,7 +26,13 @@ class Profile : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        binding.messageProfile.setOnClickListener {
+            val action = ProfileDirections.actionProfile2ToEventsList()
+          findNavController().navigate(action)
+        }
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
