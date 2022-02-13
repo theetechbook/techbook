@@ -1,33 +1,73 @@
 package com.latifah.techbook.ui.fragments
 
-import androidx.lifecycle.ViewModelProvider
+
+import android.graphics.Insets.add
+import android.media.metrics.Event
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.latifah.techbook.R
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.common.util.WorkSourceUtil.add
+import com.latifah.techbook.adapters.TechEventAdapter
+import com.latifah.techbook.database.models.EventsToday
+import com.latifah.techbook.databinding.EventsListFragmentBinding
 import com.latifah.techbook.ui.viewmodels.EventsListViewModel
+import org.intellij.lang.annotations.Language
 
 class EventsList : Fragment() {
+    private var _binding: EventsListFragmentBinding?=null
+    private val binding get() = _binding!!
+    private var listing = mutableListOf<EventsToday>()
 
-    companion object {
-        fun newInstance() = EventsList()
-    }
 
-    private lateinit var viewModel: EventsListViewModel
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.events_list_fragment, container, false)
+
+        _binding = EventsListFragmentBinding.inflate(inflater,container,false)
+        val view = binding.root
+
+        binding.eventListViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        val adapter = TechEventAdapter(listing,object: TechEventAdapter.onItemClickListener{
+            override fun onItemClick(index: Int) {
+                val action = EventsListDirections.actionEventslistToEvents()
+                view.findNavController().navigate(action)
+            }
+
+        })
+        loadListing()
+        // eventsView is the id of the RecyclerView in events_list_fragment xml
+        binding.eventsView.layoutManager = LinearLayoutManager(requireContext())
+        binding.eventsView.adapter = adapter
+        return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EventsListViewModel::class.java)
-
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
+
+    private fun loadListing(){
+        listing = mutableListOf(
+            EventsToday("java","great"),
+            EventsToday("Kotlin Expo", "New York"),
+            EventsToday("Python","Atlanta"),
+            EventsToday("JavaScript","Georgia"),
+            EventsToday("PHP","California")
+
+        )
+    }
+
 
 }
