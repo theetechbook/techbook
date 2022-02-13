@@ -3,6 +3,7 @@ package com.latifah.techbook.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -10,23 +11,27 @@ import com.latifah.techbook.R
 import com.latifah.techbook.adapters.TechEventAdapter.ViewHolder
 import com.latifah.techbook.database.models.EventsToday
 
-class TechEventAdapter( val elist:MutableList<EventsToday>, private val myListener:onItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
+class TechEventAdapter( val elist:MutableList<EventsToday>, private var myListener:onItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
 
 
     // Created a New Interface OnItemClick Listener
 
    interface onItemClickListener{
-       fun onItemClick(index:Int)
+       fun onItemClick(itemView: View?,position: Int)
 
     }
-
+fun setOnItemClickListener(mylistener: AdapterView.OnItemClickListener){
+    this.myListener = myListener
+}
 
     inner class ViewHolder(itemView: View, listener:TechEventAdapter.onItemClickListener): RecyclerView.ViewHolder(itemView){
         val eventName = itemView.findViewById<TextView>(R.id.txt)
         val eventLocation = itemView.findViewById<TextView>(R.id.sub_txt)
         init{
             itemView.setOnClickListener {
-                listener.onItemClick(bindingAdapterPosition)
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION)
+                listener.onItemClick(itemView,position)
             }
         }
     }

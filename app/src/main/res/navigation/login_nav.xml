@@ -74,10 +74,12 @@
             app:destination="@id/events" />
         <argument
             android:name="eventname"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="1"/>
         <argument
             android:name="location"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="1"/>
     </fragment>
     <fragment
         android:id="@+id/events"

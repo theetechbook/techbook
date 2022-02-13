@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.latifah.techbook.R
+import com.latifah.techbook.databinding.FragmentEventsBinding
 
 
 /**
@@ -14,6 +16,10 @@ import com.latifah.techbook.R
  * create an instance of this fragment.
  */
 class Events : Fragment() {
+    private var _binding: FragmentEventsBinding?=null
+    private val binding get() = _binding!!
+
+    private val args : EventsListArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,4 +35,6 @@ class Events : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_events, container, false)
     }
+
+
 }
