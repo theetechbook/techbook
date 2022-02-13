@@ -24,10 +24,6 @@ class EventsList : Fragment() {
 
 
 
-
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,20 +32,20 @@ class EventsList : Fragment() {
         _binding = EventsListFragmentBinding.inflate(inflater,container,false)
         val view = binding.root
 
-        binding.eventListViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
+        //binding.eventListViewModel
+        //binding.lifecycleOwner = viewLifecycleOwner
 
         val adapter = TechEventAdapter(listing,object: TechEventAdapter.onItemClickListener{
             override fun onItemClick(index: Int) {
-                val action = EventsListDirections.actionEventslistToEvents()
+                val action = EventsListDirections.actionEventsListToEvents()
                 view.findNavController().navigate(action)
             }
 
         })
         loadListing()
         // eventsView is the id of the RecyclerView in events_list_fragment xml
-        binding.eventsView.layoutManager = LinearLayoutManager(requireContext())
-        binding.eventsView.adapter = adapter
+        binding.rcyview.layoutManager = LinearLayoutManager(requireContext())
+        binding.rcyview.adapter = adapter
         return view
     }
 

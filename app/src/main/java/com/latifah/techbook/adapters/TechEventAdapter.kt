@@ -12,16 +12,6 @@ import com.latifah.techbook.database.models.EventsToday
 
 class TechEventAdapter( val elist:MutableList<EventsToday>, private val myListener:onItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
 
-    private val eventNear = mutableListOf("developer Week",
-        "Hackaton", "Android Summitt", "Everything Teck",
-        "Facebook Meeting", "AfroTech", "GoogleMeet",
-        "Interactive Event")
-
-    private val location = mutableListOf("New York", "California",
-        "France", "UK",
-        "Atlanta", "Miami",
-        "New Jersey", "Ethopia")
-
 
     // Created a New Interface OnItemClick Listener
 
@@ -48,14 +38,14 @@ class TechEventAdapter( val elist:MutableList<EventsToday>, private val myListen
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //val eventList = eList.get(position)
-        holder.eventName.text = eventNear[position]
-        holder.eventLocation.text = location[position]
+        val eventList = elist.get(position)
+        holder.eventName.text = eventList.name
+        holder.eventLocation.text = eventList.location
 
     }
 
     override fun getItemCount(): Int {
-      return  eventNear.size
+      return  elist.size
     }
 
 }

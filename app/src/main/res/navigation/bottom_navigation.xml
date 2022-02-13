@@ -11,10 +11,10 @@
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
     <fragment
-        android:id="@+id/events"
+        android:id="@+id/eventslist"
         android:name="com.latifah.techbook.ui.fragments.Events"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        android:label="events"
+        tools:layout="@layout/events_list_fragment" />
     <fragment
         android:id="@+id/likes"
         android:name="com.latifah.techbook.ui.fragments.Likes"
