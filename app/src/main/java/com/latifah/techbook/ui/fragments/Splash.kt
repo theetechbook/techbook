@@ -18,7 +18,10 @@ import com.latifah.techbook.databinding.FragmentSplashBinding
  * create an instance of this fragment.
  */
 
-class Splash : Fragment() {
+class Splash : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.GONE
+
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
 
@@ -44,14 +47,17 @@ class Splash : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.registerButtonSplash.setOnClickListener {
             val action = SplashDirections.actionSplashToRegister()
             findNavController().navigate(action)
         }
+
         binding.loginButtonSplash.setOnClickListener {
             val action = SplashDirections.actionSplashToLogin()
             findNavController().navigate(action)
         }
+
     }
 
 }

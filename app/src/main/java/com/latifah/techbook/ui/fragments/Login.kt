@@ -18,7 +18,10 @@ import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.databinding.FragmentLoginBinding
 
-class Login : Fragment() {
+class Login : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.GONE
+
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth

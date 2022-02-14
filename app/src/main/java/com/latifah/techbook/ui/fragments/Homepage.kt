@@ -13,6 +13,8 @@ import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.latifah.techbook.R
+import com.latifah.techbook.databinding.FragmentHomeBinding
+import com.latifah.techbook.databinding.FragmentProfileBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -20,7 +22,12 @@ import com.latifah.techbook.R
  * create an instance of this fragment.
  */
 
-class Homepage : Fragment() {
+class Homepage : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.VISIBLE
+
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,60 +41,7 @@ class Homepage : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // initialize variable, inflate layout
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        //fragment variables
-        val dashFrag = Dashboard()
-        val eventFrag = Events()
-        val newPostFrag = NewPost()
-        val likesFrag = Likes()
-        val profileFrag = Profile()
-        
-
-        //buttons, actionables
-
-        //top navigation
-
-        //bottom navigation
-        view.findViewById<BottomNavigationView>(R.id.bottom_nav).setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.menu_home -> {
-                    setCurrentFragment(dashFrag)
-                    Log.i("Robin", "Navigated to Home Fragment")
-                    true
-                }
-                R.id.menu_events -> {
-                    setCurrentFragment(eventFrag)
-                    Log.i("Robin", "Navigated to Events Fragment")
-                    true
-                }
-                R.id.menu_new -> {
-                    setCurrentFragment(newPostFrag)
-                    Log.i("Robin", "Navigated to New Fragment")
-                    true
-                }
-                R.id.menu_likes -> {
-                    setCurrentFragment(likesFrag)
-                    Log.i("Robin", "Navigated to Likes Fragment")
-                    true
-                }
-                R.id.menu_profile -> {
-                    setCurrentFragment(profileFrag)
-                    Log.i("Robin", "Navigated to Profile Fragment")
-                    true
-                }
-                else -> false
-            }
-        }
-        // return
-        return view
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+         return binding.root
     }
-
-    //move to ViewModel?
-    private fun setCurrentFragment(fragment: Fragment) =
-        //needed due to nesting of Fragments
-        childFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_fragment, fragment)
-            commit()
-        }
 }
