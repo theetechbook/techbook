@@ -60,5 +60,36 @@
         <argument
             android:name="userName"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_profile2_to_eventsList"
+            app:destination="@id/eventsList" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventsList"
+        android:name="com.latifah.techbook.ui.fragments.EventsList"
+        android:label="events_list_fragment"
+        tools:layout="@layout/events_list_fragment" >
+        <action
+            android:id="@+id/action_eventsList_to_events"
+            app:destination="@id/events" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/events"
+        android:name="com.latifah.techbook.ui.fragments.Events"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="location"
+            app:argType="string"
+            android:defaultValue="default" />
+        <action
+            android:id="@+id/action_events_to_eventsList"
+            app:argType="int"
+            app:destination="@id/eventsList" />
     </fragment>
 </navigation>

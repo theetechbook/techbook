@@ -20,13 +20,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="events">
+                  <entry key="eventslist">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-65" />
-                            <option name="y" value="121" />
+                            <option name="x" value="-71" />
+                            <option name="y" value="106" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -78,6 +78,30 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="events">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="937" />
+                            <option name="y" value="33" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="eventsList">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="747" />
+                            <option name="y" value="25" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="homepage">
                     <value>
                       <LayoutPositions>
@@ -102,6 +126,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_login_to_homepage">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_login_to_profile2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -282,6 +311,40 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </LayoutPositions>
+          </value>
+        </entry>
+        <entry key="nav_graph.xml">
+          <value>
+            <LayoutPositions>
+              <option name="myPositions">
+                <map>
+                  <entry key="events2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="266" />
+                            <option name="y" value="28" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="eventsList2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="40" />
+                            <option name="y" value="40" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
