@@ -10,23 +10,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.adapters.ContactAdapter
 import com.latifah.techbook.database.models.ContactItem
+import kotlin.random.Random
 
 
 class ContactFragment : Fragment() {
 
-    private val list = mutableListOf<ContactItem>()
+    private val dummyData = dummieData(30)
+    private val adapter = ContactAdapter(this.dummyData)
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_new_post, container, false)
+        val view = inflater.inflate(R.layout.contact_item_layout, container, false)
 
-        val dummyData = dummieData(30)
+
        //val adapter = ContactAdapter(list)
         val recyclerView = view.findViewById<RecyclerView>(R.id.contact_rcyV)
-        recyclerView.adapter = ContactAdapter(dummyData)
+        recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
 
@@ -42,7 +44,7 @@ class ContactFragment : Fragment() {
 
     }
 
-    private fun dummieData(size:Int):List<ContactItem> {
+    private fun dummieData(size:Int):ArrayList<ContactItem> {
         val list = ArrayList<ContactItem>()
         for (i in 0 until size) {
             val drawable = when (i % 3) {
@@ -54,5 +56,23 @@ class ContactFragment : Fragment() {
             list += item
         }
         return list
+    }
+
+    fun insertItem(view: View){
+        val index = Random.nextInt(8)
+        val newItem = ContactItem(
+            R.drawable.ic_contact_person,
+            "Person Last Name at Position $index",
+            "Email"
+        )
+        dummyData.add(index,newItem)
+        adapter.notifyItemInserted(index)
+    }
+
+    fun removeItem(view: View){
+        val index: Int = Random.nextInt(8)
+        dummyData.removeAt(index)
+        adapter.notifyItemRemoved(index)
+
     }
 }

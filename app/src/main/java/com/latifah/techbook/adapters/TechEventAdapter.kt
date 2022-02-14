@@ -12,15 +12,33 @@ import com.latifah.techbook.R
 import com.latifah.techbook.database.models.ContactItem
 import com.latifah.techbook.database.models.EventsToday
 
-class TechEventAdapter(private val exampleList: List<EventsToday>) : RecyclerView.Adapter<TechEventAdapter.TechViewHolder>() {
+class TechEventAdapter(
+    private val exampleList: List<EventsToday>,
+    private val listener: OnItemClickListener
+) :
+    RecyclerView.Adapter<TechEventAdapter.TechViewHolder>() {
 
 
-    class TechViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+   inner class TechViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+    View.OnClickListener{
         // viewholder represents a single row in our list, one instance of our row
         // it holds one instance of our views that we created our con item layout
         //val imageView: ImageView = itemView.findViewById(R.id.txt)
         val textView1: TextView = itemView.findViewById(R.id.txt)
         val textView2: TextView = itemView.findViewById(R.id.sub_txt)
+
+        init {
+            //This refers to the TechViewHolder itself
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if(position!= RecyclerView.NO_POSITION){
+                listener.onItemClick(position)
+            }
+
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechEventAdapter.TechViewHolder{
@@ -41,7 +59,9 @@ class TechEventAdapter(private val exampleList: List<EventsToday>) : RecyclerVie
          //   holder.textView1.setBackgroundColor(Color.CYAN)
         //}
     }
-
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
+    }
 
 }
 

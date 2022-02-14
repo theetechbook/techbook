@@ -72,14 +72,7 @@
         <action
             android:id="@+id/action_eventsList_to_events"
             app:destination="@id/events" />
-        <argument
-            android:name="eventname"
-            app:argType="string"
-            android:defaultValue="1"/>
-        <argument
-            android:name="location"
-            app:argType="string"
-            android:defaultValue="1"/>
+
     </fragment>
     <fragment
         android:id="@+id/events"
@@ -87,12 +80,16 @@
         android:label="fragment_events"
         tools:layout="@layout/fragment_events" >
         <argument
-            android:name="message"
+            android:name="name"
             app:argType="string"
             android:defaultValue="default" />
         <argument
-            android:name="locationcity"
+            android:name="location"
             app:argType="string"
             android:defaultValue="default" />
+        <action
+            android:id="@+id/action_events_to_eventsList"
+            app:argType="int"
+            app:destination="@id/eventsList" />
     </fragment>
 </navigation>

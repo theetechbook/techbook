@@ -22,7 +22,7 @@ class Events : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.eventTitle.text = args.message
+        binding.eventTitle.text = args.name
         //binding.eventLocation.text = args
     }
     override fun onCreateView(

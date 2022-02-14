@@ -26,10 +26,10 @@ import com.latifah.techbook.databinding.EventsListFragmentBinding
 import com.latifah.techbook.ui.viewmodels.EventsListViewModel
 import org.intellij.lang.annotations.Language
 
-class EventsList : Fragment() {
+class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
     private var _binding: EventsListFragmentBinding? = null
     private val binding get() = _binding!!
-    private val list = mutableListOf<EventsToday>()
+    private var dummieData = dummieEvent(0)
 
 
 
@@ -42,8 +42,8 @@ class EventsList : Fragment() {
         val view = binding.root
 
         val myDataset = DataSource().loadEvents()
-        val dummieData = dummieEvent(50)
-        val adapter = TechEventAdapter(dummieData)
+        dummieData = dummieEvent(50)
+        val adapter = TechEventAdapter(dummieData,this)
         binding.rcyview.adapter = adapter
         binding.rcyview.layoutManager = LinearLayoutManager(requireContext())
 
@@ -63,17 +63,18 @@ class EventsList : Fragment() {
 
         //Log.i("ana","button clicked")
 */
-        fun messageSuccess(eventsToday: EventsToday) {
-            val action = EventsListDirections.actionEventsList2ToEvents2("Altanta")
-            findNavController().navigate(action)
-        }
+      //  fun messageSuccess(eventsToday: EventsToday) {
+
+         //   val action = EventsListDirections.actionEventsListToEvents()
+        //    findNavController().navigate(action)
+       // }
 
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-    private fun dummieEvent(size:Int):List<EventsToday> {
+    private fun dummieEvent(size:Int):ArrayList<EventsToday> {
         val list = ArrayList<EventsToday>()
         for (i in 0 until size) {
             val drawable = when (i % 3) {
@@ -85,6 +86,15 @@ class EventsList : Fragment() {
             list += item
         }
         return list
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(context, "Item $position clicked", Toast.LENGTH_SHORT).show()
+        val clickItem = dummieData[position]
+        clickItem.name = "clicked"
+        //notifyItemChanged(position)
+        //val action = EventsListDirections.actionEventsListToEvents()
+        // findNavController().navigate(action)
     }
 
 }
