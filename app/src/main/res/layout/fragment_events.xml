@@ -5,15 +5,30 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.Events">
+    >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/event_view"
-        android:layout_width="match_parent"
-        android:layout_height="632dp"
-        android:background="#4CAF50"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/event_title"
+        android:layout_width="289dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="100dp"
+        android:text="event_title"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/event_location"
+        android:layout_width="289dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="100dp"
+        android:text="event_title"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

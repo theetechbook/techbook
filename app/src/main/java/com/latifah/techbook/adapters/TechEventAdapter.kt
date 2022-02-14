@@ -3,54 +3,42 @@ package com.latifah.techbook.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.latifah.techbook.R
-import com.latifah.techbook.adapters.TechEventAdapter.ViewHolder
+import com.latifah.techbook.database.models.ContactItem
 import com.latifah.techbook.database.models.EventsToday
 
-class TechEventAdapter( val elist:MutableList<EventsToday>, private var myListener:onItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
+class TechEventAdapter(private val exampleList: List<EventsToday>) : RecyclerView.Adapter<TechEventAdapter.TechViewHolder>() {
 
 
-    // Created a New Interface OnItemClick Listener
-
-   interface onItemClickListener{
-       fun onItemClick(itemView: View?,position: Int)
-
-    }
-fun setOnItemClickListener(mylistener: AdapterView.OnItemClickListener){
-    this.myListener = myListener
-}
-
-    inner class ViewHolder(itemView: View, listener:TechEventAdapter.onItemClickListener): RecyclerView.ViewHolder(itemView){
-        val eventName = itemView.findViewById<TextView>(R.id.txt)
-        val eventLocation = itemView.findViewById<TextView>(R.id.sub_txt)
-        init{
-            itemView.setOnClickListener {
-                val position = absoluteAdapterPosition
-                if (position != RecyclerView.NO_POSITION)
-                listener.onItemClick(itemView,position)
-            }
-        }
+    class TechViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // viewholder represents a single row in our list, one instance of our row
+        // it holds one instance of our views that we created our con item layout
+        //val imageView: ImageView = itemView.findViewById(R.id.txt)
+        val textView1: TextView = itemView.findViewById(R.id.txt)
+        val textView2: TextView = itemView.findViewById(R.id.sub_txt)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       val inflater = LayoutInflater.from(parent.context)
-        val dataItemView = inflater.inflate(R.layout.item, parent,false)
-        return ViewHolder(dataItemView,myListener)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val eventList = elist.get(position)
-        holder.eventName.text = eventList.name
-        holder.eventLocation.text = eventList.location
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechEventAdapter.TechViewHolder{
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item,parent,false)
+        return TechViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
-      return  elist.size
+        return exampleList.size
     }
 
+    override fun onBindViewHolder(holder: TechViewHolder, position: Int) {
+        val currentItem = exampleList[position]
+        holder.textView1.text = currentItem.name
+        holder.textView2.text = currentItem.location    }
+
+
 }
+
+
+
+
+
