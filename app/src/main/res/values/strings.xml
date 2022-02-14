@@ -13,4 +13,15 @@
     <string name="exit">Logout</string>
     <string name="Event">Title</string>
     <string name="Location">Location</string>
+    <string name="Event1">Java expo</string>
+    <string name="Event6">Kotlin expo</string>
+    <string name="Event2">JavaScript expo</string>
+    <string name="Event3">Python expo</string>
+    <string name="Event4">API expo</string>
+    <string name="Event5">MLK expo</string>
+    <string name="Event7">Dev Ops expo</string>
+    <string name="name">Name</string>
+    <string name="email">email</string>
+    <string name="todo">TODO</string>
+
 </resources>
