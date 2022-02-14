@@ -91,10 +91,11 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
     override fun onItemClick(position: Int) {
         Toast.makeText(context, "Item $position clicked", Toast.LENGTH_SHORT).show()
         val clickItem = dummieData[position]
-        clickItem.name = "clicked"
+
         //notifyItemChanged(position)
-        //val action = EventsListDirections.actionEventsListToEvents()
-        // findNavController().navigate(action)
+        val action = EventsListDirections.actionEventsListToEvents(clickItem.name,clickItem.location)
+        findNavController().navigate(action)
+    // clickItem.
     }
 
 }

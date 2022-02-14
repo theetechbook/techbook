@@ -20,13 +20,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="events">
+                  <entry key="eventslist">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-65" />
-                            <option name="y" value="121" />
+                            <option name="x" value="-71" />
+                            <option name="y" value="106" />
                           </Point>
                         </option>
                       </LayoutPositions>
