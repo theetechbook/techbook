@@ -1,3 +1,7 @@
 package com.latifah.techbook.database.models
 
-data class EventsToday(var name: String, var location : String)
+import androidx.annotation.StringRes
+
+data class EventsToday( var name: String, var location: String){
+
+}
