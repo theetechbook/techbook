@@ -29,7 +29,7 @@ import org.intellij.lang.annotations.Language
 class EventsList : Fragment() {
     private var _binding: EventsListFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: TechEventAdapter
+    private val list = mutableListOf<EventsToday>()
 
 
 
@@ -40,12 +40,12 @@ class EventsList : Fragment() {
 
         _binding = EventsListFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
+
         val myDataset = DataSource().loadEvents()
-        val rvView = view.findViewById<RecyclerView>(R.id.rcyview)
-        adapter = TechEventAdapter(myDataset)
-        rvView.adapter = adapter
-        // eventsView is the id of the RecyclerView in events_list_fragment xml
-        rvView.layoutManager = LinearLayoutManager(requireContext())
+        val dummieData = dummieEvent(50)
+        val adapter = TechEventAdapter(dummieData)
+        binding.rcyview.adapter = adapter
+        binding.rcyview.layoutManager = LinearLayoutManager(requireContext())
 
 
         return view

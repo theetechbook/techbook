@@ -1,5 +1,7 @@
 package com.latifah.techbook.adapters
 
+import android.graphics.Color
+import android.graphics.Color.YELLOW
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +35,12 @@ class TechEventAdapter(private val exampleList: List<EventsToday>) : RecyclerVie
     override fun onBindViewHolder(holder: TechViewHolder, position: Int) {
         val currentItem = exampleList[position]
         holder.textView1.text = currentItem.name
-        holder.textView2.text = currentItem.location    }
+        holder.textView2.text = currentItem.location
+
+        //if (position == 0){
+         //   holder.textView1.setBackgroundColor(Color.CYAN)
+        //}
+    }
 
 
 }
