@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/postimageView"
         android:layout_width="369dp"
         android:layout_height="351dp"
         android:layout_marginBottom="8dp"
@@ -37,7 +37,7 @@
         android:layout_marginBottom="63dp"
         android:text="firstname"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/postimageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_username" />
 
@@ -50,7 +50,7 @@
         android:layout_marginBottom="63dp"
         android:text="lastname"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/postimageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_username" />
 
