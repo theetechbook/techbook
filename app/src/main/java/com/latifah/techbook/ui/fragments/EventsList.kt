@@ -50,24 +50,7 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
 
         return view
     }
-/*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        val myDataset = DataSource().loadEvents()
-        val rvView = view.findViewById<RecyclerView>(R.id.rcyview)
-        adapter = TechEventAdapter(myDataset)
-        rvView.adapter = adapter
-        // eventsView is the id of the RecyclerView in events_list_fragment xml
-        rvView.layoutManager = LinearLayoutManager(requireContext())
-
-        //Log.i("ana","button clicked")
-*/
-      //  fun messageSuccess(eventsToday: EventsToday) {
-
-         //   val action = EventsListDirections.actionEventsListToEvents()
-        //    findNavController().navigate(action)
-       // }
 
 
     override fun onDestroy() {
