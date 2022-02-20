@@ -52,13 +52,13 @@ class ContactFragment : Fragment() {
                 1 -> R.drawable.ic_contact_person
                 else -> R.drawable.ic_navigate_next
             }
-            val item = ContactItem(drawable, "Item $i", "Line 2")
+            val item = ContactItem(drawable, 1,"Item $i", "Line 2")
             list += item
         }
         return list
     }
 
-    fun insertItem(view: View){
+ /*   fun insertItem(view: View){
         val index = Random.nextInt(8)
         val newItem = ContactItem(
             R.drawable.ic_contact_person,
@@ -75,4 +75,6 @@ class ContactFragment : Fragment() {
         adapter.notifyItemRemoved(index)
 
     }
+
+  */
 }
