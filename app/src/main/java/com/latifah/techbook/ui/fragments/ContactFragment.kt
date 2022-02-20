@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.adapters.ContactAdapter
 import com.latifah.techbook.database.models.ContactItem
+import com.latifah.techbook.databinding.ContactItemLayoutBinding
 import kotlin.random.Random
 
 
 class ContactFragment : Fragment() {
-
+    private var _binding: ContactItemLayoutBinding? = null
+    private val binding get() = _binding!!
     private val dummyData = dummieData(30)
     private val adapter = ContactAdapter(this.dummyData)
 
@@ -23,14 +25,22 @@ class ContactFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.contact_item_layout, container, false)
+        _binding = ContactItemLayoutBinding.inflate(inflater,container,false)
+        val view = binding.root
 
 
-       //val adapter = ContactAdapter(list)
+       val adapter = ContactAdapter(dummieData(20))
+       binding.contactRcyV.adapter
+        binding.contactRcyV.layoutManager = LinearLayoutManager(requireContext())
+       binding.contactRcyV.setHasFixedSize(true)
+
+       /*
         val recyclerView = view.findViewById<RecyclerView>(R.id.contact_rcyV)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
+
+        */
 
 
         return view
