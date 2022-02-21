@@ -65,7 +65,7 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
                 1 -> R.drawable.ic_contact_person
                 else -> R.drawable.ic_navigate_next
             }
-            val item = EventsToday( "Item $i", "Line 2")
+            val item = EventsToday( 1,"Item $i", "Line 2")
             list += item
         }
         return list
