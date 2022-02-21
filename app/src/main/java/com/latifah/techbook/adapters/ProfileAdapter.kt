@@ -1,25 +1,33 @@
 package com.latifah.techbook.adaptersimport
 
+import android.content.ClipData
 import android.view.LayoutInflater
 import com.latifah.techbook.R
 import com.latifah.techbook.database.models.EventsToday
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.ProfileData
 import kotlinx.android.extensions.LayoutContainer
 
-class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.Viewholder>() {
+class ProfileAdapter(
+    private val exampleProfileList: List<ProfileData>,
+    private val listener:TechEventAdapter.OnItemClickListener
+) : RecyclerView.Adapter<ProfileAdapter.Viewholder>() {
 
-    var data: List<ProfileData> = emptyList()
+   /* var data: List<ProfileData> = emptyList()
         set(newList) {
             val calculateDiff = DiffUtil.calculateDiff(DiffCallback(field, newList))
             calculateDiff.dispatchUpdatesTo(this)
             field = newList
         }
 
-    override fun getItemCount(): Int = data.size
+    */
+
+    override fun getItemCount(): Int = exampleProfileList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         return Viewholder(
@@ -29,15 +37,23 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.Viewholder>() {
     }
 
     override fun onBindViewHolder(holder: ProfileAdapter.Viewholder, position: Int) {
-        holder.bind(data[position])
+       val currentItem = exampleProfileList[position]
+        holder.imageView.setImageResource(currentItem.imageResour)
     }
 
-    inner class Viewholder(override val containerView: View) :
-        RecyclerView.ViewHolder(containerView),
-        LayoutContainer {
-        fun bind(item:) = with(itemView) {
+    inner class Viewholder(itemView: View) :
+        RecyclerView.ViewHolder(itemView),
+       View.OnClickListener{
+        val imageView : ImageView = itemView.findViewById(R.id.profV)
 
+
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                listener.onItemClick(position)
+            }
         }
+
     }
 }
 

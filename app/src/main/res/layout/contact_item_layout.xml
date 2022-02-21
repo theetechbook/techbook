@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:padding="4dp"
-        tools:listitem="@layout/item_contact" />
-
-
+        tools:listitem="@layout/item_contact"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>
