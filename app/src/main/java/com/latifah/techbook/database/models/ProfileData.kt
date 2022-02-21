@@ -1,5 +1,3 @@
 package com.latifah.techbook.database.models
 
-class ProfileData(val imageResour: Int, val text1: String, val text2: String) {
-
-}
+data class ProfileData(val id: Int,val imageResour: Int, var text1: String, var text2: String, var text3: String,var text4:String)
