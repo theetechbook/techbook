@@ -11,31 +11,7 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:padding="4dp"
-        android:layout_above="@+id/buttons"
-        tools:listitem="@layout/item_contact" />
-
-    <LinearLayout
-        android:id="@+id/buttons"
-        android:padding="4dp"
-        android:clipToPadding="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Insert Item"
-        android:onClick="insertItem"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Remove Item"
-        android:onClick="removeItem"/>
-
-    </LinearLayout>
+        tools:listitem="@layout/item_contact"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>
