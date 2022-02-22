@@ -22,7 +22,13 @@ class Events : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.eventTitle.text = args.name
+        binding.eventTitle.text = args.eventName
+        binding.eventVenue.text = args.eventVenue
+        binding.eventDate.text = args.eventDate
+        binding.eventTime.text = args.eventTime
+        binding.eventDescription.text = args.eventDescription
+        binding.eventOnline.text = args.onlineVenue
+        binding.eventImage.setImageResource(id)
         //binding.eventLocation.text = args
     }
     override fun onCreateView(

@@ -72,24 +72,42 @@
         <action
             android:id="@+id/action_eventsList_to_events"
             app:destination="@id/events" />
+        <action
+            android:id="@+id/action_eventsList_to_event"
+            app:destination="@id/event" />
 
     </fragment>
     <fragment
-        android:id="@+id/events"
+        android:id="@+id/event"
         android:name="com.latifah.techbook.ui.fragments.Events"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" >
+        android:label="@string/Event"
+        tools:layout="@layout/event">
         <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="default" />
+            android:name="eventName"
+            app:argType="string" />
         <argument
-            android:name="location"
-            app:argType="string"
-            android:defaultValue="default" />
-        <action
-            android:id="@+id/action_events_to_eventsList"
-            app:argType="int"
-            app:destination="@id/eventsList" />
+            android:name="eventDate"
+            app:argType="string" />
+        <argument
+            android:name="eventTime"
+            app:argType="string" />
+        <argument
+            android:name="eventVenue"
+            app:argType="string" />
+        <argument
+            android:name="onlineVenue"
+            app:argType="string" />
+        <argument
+            android:name="eventDescription"
+            app:argType="string" />
     </fragment>
+    <argument
+        android:name="name"
+        app:argType="string"
+        android:defaultValue="default" />
+    <argument
+        android:name="location"
+        app:argType="string"
+        android:defaultValue="default" />
+
 </navigation>
