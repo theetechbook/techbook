@@ -9,10 +9,9 @@
         android:id="@+id/postimageView"
         android:layout_width="369dp"
         android:layout_height="351dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/post_caption"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/techbooklogo" />
 
@@ -20,7 +19,7 @@
         android:id="@+id/post_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:text="username"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -32,25 +31,21 @@
         android:id="@+id/post_firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="16dp"
         android:text="firstname"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/postimageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_username" />
+
 
     <TextView
         android:id="@+id/post_lastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="152dp"
         android:text="lastname"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/postimageView"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_username" />
 
@@ -59,13 +54,25 @@
         android:layout_width="325dp"
         android:layout_height="153dp"
         android:layout_marginEnd="12sp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="88dp"
         android:text="This is the caption for a post. You can say whatever you want here! Words..letters...numbers...all sorts of things. Filler text. Filler filler filler filer filler filer fefie felf ffler. Should comments be a part of this? Or another fragment? Probably a fragment. I think this is enough text though. "
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/like_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="like"
+        app:icon="@drawable/outline_favorite_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_caption" />
 </androidx.constraintlayout.widget.ConstraintLayout>

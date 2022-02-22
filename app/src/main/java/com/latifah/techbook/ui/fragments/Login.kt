@@ -1,5 +1,6 @@
 package com.latifah.techbook.ui.fragments
 
+import android.content.Context.NOTIFICATION_SERVICE
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -62,6 +63,10 @@ class Login : BaseFragment() {
                     .addOnCompleteListener { task ->
                         if(task.isSuccessful){
                             Firestore().loginUser(this)
+                        } else {  Toast.makeText(activity,
+                            "Username/Password Incorrect",
+                            Toast.LENGTH_LONG)
+                            .show()
                         }
                     }
             }
