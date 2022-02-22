@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/eventsList"
         android:name="com.latifah.techbook.ui.fragments.EventsList"
-        android:label="events_list_fragment"
+        android:label="Events List"
         tools:layout="@layout/events_list_fragment" >
         <action
             android:id="@+id/action_eventsList_to_events"
