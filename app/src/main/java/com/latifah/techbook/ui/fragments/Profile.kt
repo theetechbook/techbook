@@ -28,6 +28,15 @@ class Profile : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        //binding.messageProfile.setOnClickListener {
+          //  val action = ProfileDirections.actionProfile2ToContactFragment()
+          //  findNavController().navigate(action)
+
+            //val action = ProfileDirections.actionProfile2ToEventsList()
+           // findNavController().navigate(action)
+      //  }
+
+
         return binding.root
     }
 
@@ -35,6 +44,9 @@ class Profile : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.username.text = args.userName
         binding.name.text = "${args.firstName}  ${args.lastName}"
+       // binding.buttonContact.setOnClickListener {
+            val action = ProfileDirections.actionProfile2ToContactFragment()
+            findNavController().navigate(action)
+        }
     }
 
-}

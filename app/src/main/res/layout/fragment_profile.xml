@@ -11,7 +11,7 @@
         android:id="@+id/avatar"
         android:layout_width="121dp"
         android:layout_height="112dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="72dp"
         android:background="#9C27B0"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:ems="10"
-        android:gravity="start|top"
         android:hint="This is where my profile description would be...IF I HAD ONE! Soon..."
         android:inputType="textMultiLine"
         android:paddingLeft="8dp"
@@ -115,5 +114,15 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation" />
+
+    <Button
+        android:id="@+id/button_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="14dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

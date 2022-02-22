@@ -5,29 +5,43 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.adapters.ContactAdapter
+import com.latifah.techbook.adapters.TechEventAdapter
+import com.latifah.techbook.adapters.TechEventAdapter.OnItemClickListener
 import com.latifah.techbook.database.models.ContactItem
+import com.latifah.techbook.databinding.ContactItemLayoutBinding
 import kotlin.random.Random
 
 
 class ContactFragment : Fragment() {
 
+    private var _binding: ContactItemLayoutBinding? = null
+    private val binding get() = _binding!!
     private val dummyData = dummieData(30)
-    private val adapter = ContactAdapter(this.dummyData)
 
+
+   var bottomNavigationViewVisibility = View.VISIBLE
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.contact_item_layout, container, false)
+        _binding = ContactItemLayoutBinding.inflate(inflater,container,false)
+        val view = binding.root
+        val adapter = ContactAdapter(this.dummyData, object: ContactAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                val action = ContactFragmentDirections.actionContactFragmentToContactChat()
+                findNavController().navigate(action)
+            }
 
-
+        })
+        val recyclerView = binding.contactRcyV
        //val adapter = ContactAdapter(list)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.contact_rcyV)
+      //  val recyclerView = view.findViewById<RecyclerView>(R.id.contact_rcyV)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
@@ -35,14 +49,14 @@ class ContactFragment : Fragment() {
 
         return view
     }
-
+/*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val contactItem = dummieData(20)
 
+*/
 
-
-    }
+   // }
 
     private fun dummieData(size:Int):ArrayList<ContactItem> {
         val list = ArrayList<ContactItem>()
@@ -57,7 +71,9 @@ class ContactFragment : Fragment() {
         }
         return list
     }
+}
 
+ /*
     fun insertItem(view: View){
         val index = Random.nextInt(8)
         val newItem = ContactItem(
@@ -75,4 +91,5 @@ class ContactFragment : Fragment() {
         adapter.notifyItemRemoved(index)
 
     }
-}
+    }
+  */
