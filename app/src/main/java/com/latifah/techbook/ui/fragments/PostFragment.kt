@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.latifah.techbook.R
 
-
-
-
 class PostFragment : Fragment() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

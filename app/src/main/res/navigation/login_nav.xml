@@ -63,20 +63,15 @@
         <action
             android:id="@+id/action_profile2_to_eventsList"
             app:destination="@id/eventsList" />
-        <action
-            android:id="@+id/action_profile2_to_contactFragment"
-            app:destination="@id/contactFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventsList"
         android:name="com.latifah.techbook.ui.fragments.EventsList"
-        android:label="Near Me"
+        android:label="Events List"
         tools:layout="@layout/events_list_fragment" >
         <action
             android:id="@+id/action_eventsList_to_events"
-            app:destination="@id/events"
-            app:popUpTo="@id/events"
-            app:popUpToInclusive="true"/>
+            app:destination="@id/events" />
 
     </fragment>
     <fragment
@@ -85,37 +80,16 @@
         android:label="fragment_events"
         tools:layout="@layout/fragment_events" >
         <argument
-            android:name="message1"
+            android:name="name"
             app:argType="string"
             android:defaultValue="default" />
         <argument
-            android:name="message2"
+            android:name="location"
             app:argType="string"
             android:defaultValue="default" />
         <action
-            android:id="@+id/action_events_to_contactFragment"
-            app:destination="@id/contactFragment" />
-        <action
             android:id="@+id/action_events_to_eventsList"
+            app:argType="int"
             app:destination="@id/eventsList" />
-
-    </fragment>
-    <fragment
-        android:id="@+id/contactFragment"
-        android:name="com.latifah.techbook.ui.fragments.ContactFragment"
-        android:label="@string/Contacts"
-        tools:layout="@layout/contact_item_layout">
-        <action
-            android:id="@+id/action_contactFragment_to_contactChat"
-            app:destination="@id/contactChat" />
-    </fragment>
-    <fragment
-        android:id="@+id/contactChat"
-        android:name="com.latifah.techbook.ui.fragments.ContactChat"
-        android:label="fragment_contact_chat"
-        tools:layout="@layout/fragment_contact_chat" >
-        <action
-            android:id="@+id/action_contactChat_to_contactFragment"
-            app:destination="@id/contactFragment" />
     </fragment>
 </navigation>
