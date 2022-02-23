@@ -50,6 +50,11 @@ class Profile : BaseFragment() {
             //private fun saveProfileText (?)
         }
 
+        //This is the code for the button to "log out".
+        binding.logoutButton.setOnClickListener {
+            //private fun logout (?)
+        }
+
         // This is Ana's "Contact Button Code"
 //            binding.buttonContact.setOnClickListener {
 //            val action = ProfileDirections.actionProfile2ToContactFragment()
