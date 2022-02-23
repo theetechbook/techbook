@@ -27,15 +27,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/post_firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
         android:text="firstname"
         android:textAlignment="center"
-
+        app:layout_constraintEnd_toStartOf="@+id/post_lastname"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="59dp" />
 
     <TextView
         android:id="@+id/post_lastname"
