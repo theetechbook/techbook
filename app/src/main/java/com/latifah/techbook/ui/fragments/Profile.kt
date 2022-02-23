@@ -44,9 +44,16 @@ class Profile : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.username.text = args.userName
         binding.name.text = "${args.firstName}  ${args.lastName}"
-       // binding.buttonContact.setOnClickListener {
-            val action = ProfileDirections.actionProfile2ToContactFragment()
-            findNavController().navigate(action)
+
+        // Here is the code slot for the button that saves edited profile data.
+        binding.saveProfileButton.setOnClickListener {
+            //private fun saveProfileText (?)
+        }
+
+        // This is Ana's "Contact Button Code"
+//            binding.buttonContact.setOnClickListener {
+//            val action = ProfileDirections.actionProfile2ToContactFragment()
+//            findNavController().navigate(action)
         }
     }
 
