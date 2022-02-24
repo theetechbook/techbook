@@ -9,7 +9,15 @@
         app:showAsAction ="always"/>
 
 
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item
+        android:id="@+id/contactFragment2"
+        android:title="ContactFragment"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/newPost3"
+        android:title="New Post"
+        app:showAsAction="never"/>
+
     <item android:title="Item" />
 </menu>

@@ -7,8 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.DataSource
@@ -17,36 +20,38 @@ import com.latifah.techbook.databinding.EventsListFragmentBinding
 
 class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
     private var _binding: EventsListFragmentBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
     private var dummieData = dummieEvent(0)
-
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        //return inflater.inflate(R.layout.events_list_fragment,container,false)
         _binding = EventsListFragmentBinding.inflate(inflater, container, false)
-        val view = binding.root
+        val view = binding?.root
 
-        val myDataset = DataSource().loadEvents()
+        //val myDataset = DataSource().loadEvents()
         dummieData = dummieEvent(50)
-        val adapter = TechEventAdapter(dummieData,this)
-        binding.rcyview.adapter = adapter
-        binding.rcyview.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = TechEventAdapter(dummieData, this)
 
+        // val recyclerView = view?.findViewById<RecyclerView>(R.id.rcyview)
+        //val recyclerView = binding.rcyview
+        binding?.rcyview?.adapter = adapter
+        binding?.rcyview?.layoutManager = LinearLayoutManager(requireContext())
+        binding?.rcyview?.setHasFixedSize(true)
 
         return view
     }
 
 
-
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        // _binding = null
     }
-    private fun dummieEvent(size:Int):ArrayList<EventsToday> {
+
+    private fun dummieEvent(size: Int): ArrayList<EventsToday> {
         val list = ArrayList<EventsToday>()
         for (i in 0 until size) {
             val drawable = when (i % 3) {
@@ -74,11 +79,12 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
         val clickItem = dummieData[position]
 
         //notifyItemChanged(position)
-        val action = EventsListDirections.actionEventsListToEvent(clickItem.name, clickItem.location,
-            clickItem.time.toString(),clickItem.description,clickItem.image, clickItem.online
+        val action = EventsListDirections.actionEventsListToEvent(
+            clickItem.name, clickItem.location,
+            clickItem.time.toString(), clickItem.description, clickItem.image, clickItem.online
         )
         findNavController().navigate(action)
-    // clickItem.
+        // clickItem.
     }
 
 }
