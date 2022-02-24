@@ -14,7 +14,7 @@ import com.latifah.techbook.databinding.FragmentEventsBinding
 class Events : Fragment() {
     private var _binding: FragmentEventsBinding? = null
     private val binding get() = _binding!!
-
+    var bottomNavigationViewVisibility = View.VISIBLE
     private val args: EventsArgs by navArgs()
 
 

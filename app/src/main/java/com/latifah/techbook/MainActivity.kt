@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        val toolbar = binding.toolbar
+        //val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
 
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu_eventsList -> {
                     setCurrentFragment(eventListFrag)
-                    Log.i("Robin", "Navigated to Events Fragment")
+                    Log.i("Robin", "Navigated to Events Lists Fragment")
                     true
                 }
                 R.id.menu_new -> {
@@ -102,6 +103,8 @@ class MainActivity : AppCompatActivity() {
         // get the reference of the bottomNavigationView and set the visibility.
         binding.bottomNavigationView.visibility = visibility
     }
+
+
 
     fun setCurrentFragment(fragment: Fragment) =
         //needed due to nesting of Fragments

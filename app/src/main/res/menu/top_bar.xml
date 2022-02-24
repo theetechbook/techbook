@@ -11,8 +11,9 @@
 
     <item
         android:id="@+id/contactFragment2"
+        android:icon="@drawable/ic_mail_24"
         android:title="ContactFragment"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/newPost3"

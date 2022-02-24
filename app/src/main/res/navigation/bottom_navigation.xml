@@ -3,39 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation.xml"
-    app:startDestination="@id/profile">
+    android:label="Profile"
+    app:startDestination="@id/profile2">
 
     <fragment
         android:id="@+id/profile"
         android:name="com.latifah.techbook.ui.fragments.Profile"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile">
-    <argument
-        android:name="firstName"
-        app:argType="string"/>
-    <argument
-        android:name="lastName"
-        app:argType="string"/>
-    <argument
-        android:name="userName"
-        app:argType="string"/>
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument
+            android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
 
     <fragment
         android:id="@+id/eventslist"
         android:name="com.latifah.techbook.ui.fragments.Events"
-        android:label="events"
+        android:label="Near Me"
         tools:layout="@layout/events_list_fragment" />
     <fragment
         android:id="@+id/likes"
         android:name="com.latifah.techbook.ui.fragments.Likes"
-        android:label="fragment_likes"
+        android:label="Likes"
         tools:layout="@layout/fragment_likes" />
 
     <fragment
         android:id="@+id/newPost"
         android:name="com.latifah.techbook.ui.fragments.NewPost"
-        android:label="fragment_new_post"
+        android:label="New Post"
         tools:layout="@layout/fragment_new_post" />
     <fragment
         android:id="@+id/dashboard"

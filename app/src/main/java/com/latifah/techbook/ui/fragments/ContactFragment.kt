@@ -22,7 +22,7 @@ class ContactFragment : Fragment(), TechEventAdapter.OnItemClickListener {
     private val binding get() = _binding!!
     private var dummyData = dummieData(30)
     //private val adapter = ContactAdapter(this.dummyData)
-
+   var bottomNavigationViewVisibility = View.VISIBLE
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

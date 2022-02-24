@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="4dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="103dp"
-        android:layout_height="89dp"
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
         android:padding="8dp">
 
         <ImageView
             android:id="@+id/profV"
             android:layout_width="95dp"
             android:layout_height="72dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:contentDescription="@string/todo"
-            android:src="@drawable/ic_person_icon" />
+            android:src="@drawable/techiehumor" />
+
+        <TextView
+            android:id="@+id/titleTxtV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profV"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Title Text"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
