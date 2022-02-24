@@ -7,6 +7,7 @@ import com.latifah.techbook.database.models.EventsToday
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.adapters.TechEventAdapter
@@ -15,7 +16,7 @@ import kotlinx.android.extensions.LayoutContainer
 
 class ProfileAdapter(
     private val exampleProfileList: List<ProfileData>,
-    private val listener:TechEventAdapter.OnItemClickListener
+    private val listener:OnItemClickListener
 ) : RecyclerView.Adapter<ProfileAdapter.Viewholder>() {
 
    /* var data: List<ProfileData> = emptyList()
@@ -26,26 +27,30 @@ class ProfileAdapter(
         }
 
     */
+    //override fun getItemCount(): Int = exampleProfileList.size
 
-    override fun getItemCount(): Int = exampleProfileList.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileAdapter.Viewholder {
+       val itemView = LayoutInflater.from(parent.context)
+           .inflate(R.layout.profile_item, parent, false)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
-        return Viewholder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.profile_item, parent, false)
-        )
+        return Viewholder(itemView)
     }
 
-    override fun onBindViewHolder(holder: ProfileAdapter.Viewholder, position: Int) {
+    override fun onBindViewHolder(holder: Viewholder, position: Int) {
        val currentItem = exampleProfileList[position]
-        holder.imageView.setImageResource(currentItem.imageResour)
+     //   holder.imageView.setImageResource(currentItem.imageResour)
+        holder.textView.text = currentItem.text1
     }
 
     inner class Viewholder(itemView: View) :
         RecyclerView.ViewHolder(itemView),
        View.OnClickListener{
-        val imageView : ImageView = itemView.findViewById(R.id.profV)
+      //  var imageView : ImageView = itemView.findViewById(R.id.profV)
+        var textView: TextView = itemView.findViewById(R.id.titleTxtV)
 
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         override fun onClick(v: View?) {
             val position: Int = adapterPosition
@@ -54,6 +59,14 @@ class ProfileAdapter(
             }
         }
 
+    }
+
+    override fun getItemCount(): Int {
+        return exampleProfileList.size
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 }
 

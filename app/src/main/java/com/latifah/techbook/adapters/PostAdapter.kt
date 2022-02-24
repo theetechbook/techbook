@@ -22,7 +22,7 @@ class PostAdapter(
         // viewholder represents a single row in our list, one instance of our row
         // it holds one instance of our views that we created our con item layout
 
-        val imageView: ImageView = itemView.findViewById(R.id.imageView3)
+        //val imageView: ImageView = itemView.findViewById(R.id.imageView3)
         val textView1: TextView = itemView.findViewById(R.id.post_username)
         val textView2: TextView = itemView.findViewById(R.id.post_firstname)
         val textView3: TextView = itemView.findViewById(R.id.post_lastname)
@@ -57,7 +57,7 @@ class PostAdapter(
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val currentItem = postList[position]
-        holder.imageView.setImageResource(currentItem.imageResour)
+       // holder.imageView.setImageResource(currentItem.imageResour)
         holder.textView1.text = currentItem.text1
         holder.textView2.text = currentItem.text2
         holder.textView3.text = currentItem.text3

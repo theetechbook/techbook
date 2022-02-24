@@ -22,6 +22,7 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
     private var _binding: EventsListFragmentBinding? = null
     private val binding get() = _binding
     private var dummieData = dummieEvent(0)
+    var bottomNavigationViewVisibility = View.VISIBLE
 
 
     override fun onCreateView(

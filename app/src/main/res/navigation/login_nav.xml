@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/profile2"
         android:name="com.latifah.techbook.ui.fragments.Profile"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <argument
             android:name="firstName"
