@@ -16,6 +16,7 @@ import com.latifah.techbook.databinding.FragmentProfileBinding
  * create an instance of this fragment.
  */
 class Profile : Fragment() {
+    var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private val args : ProfileArgs by navArgs()
@@ -27,10 +28,10 @@ class Profile : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        binding.messageProfile.setOnClickListener {
-            val action = ProfileDirections.actionProfile2ToEventsList()
-          findNavController().navigate(action)
-        }
+      //  binding.messageProfile.setOnClickListener {
+        //    val action = ProfileDirections.actionProfile2ToEventsList()
+       //   findNavController().navigate(action)
+     //   }
         return binding.root
 
     }
@@ -40,4 +41,14 @@ class Profile : Fragment() {
         binding.username.text = args.userName
         binding.name.text = "${args.firstName}  ${args.lastName}"
     }
+
+    //binding.saveProfileButton.setOnClickListener {
+    //    //private fun saveProfileText (?)
+   // }
+
+    //This is the code for the button to "log out".
+   // binding.logoutButton.setOnClickListener {
+        //private fun logout (?)
+   // }
+
 }

@@ -38,7 +38,7 @@ class Homepage : Fragment() {
 
         //fragment variables
         val dashFrag = Dashboard()
-        val eventFrag = Events()
+        val eventsListFrag = EventsList()
         val newPostFrag = NewPost()
         val likesFrag = Likes()
         val profileFrag = Profile()
@@ -56,8 +56,8 @@ class Homepage : Fragment() {
                     Log.i("Robin", "Navigated to Home Fragment")
                     true
                 }
-                R.id.menu_events -> {
-                    setCurrentFragment(eventFrag)
+                R.id.menu_eventsList -> {
+                    setCurrentFragment(eventsListFrag)
                     Log.i("Robin", "Navigated to Events Fragment")
                     true
                 }

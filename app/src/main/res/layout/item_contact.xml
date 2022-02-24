@@ -27,7 +27,7 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/con_subtxt_"
+            android:id="@+id/con_subtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
