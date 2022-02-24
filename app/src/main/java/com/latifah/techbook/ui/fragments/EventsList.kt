@@ -45,8 +45,8 @@ class EventsList : Fragment() {
             fun onItemClick(itemView: View?, position: Int) {
                 val data = myDataset[position]
                 binding.root?.setOnClickListener {
-                     val action = EventsListDirections.actionEventsList2ToEvents2()
-                    itemView?.findNavController()?.navigate(action)
+                     //val action = EventsListDirections.actionEventsList2ToEvents2()
+                    //itemView?.findNavController()?.navigate(action)
                     //Log.i("ana","button clicked")
 
 
