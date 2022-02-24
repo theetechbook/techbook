@@ -64,4 +64,7 @@ class PostAdapter(
         holder.textView4.text = currentItem.text4
     }
 
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
+    }
 }

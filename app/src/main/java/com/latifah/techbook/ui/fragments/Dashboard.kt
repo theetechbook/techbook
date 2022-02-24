@@ -12,7 +12,9 @@ import com.latifah.techbook.R
  * Use the [Dashboard.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Dashboard : Fragment() {
+class Dashboard : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.VISIBLE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

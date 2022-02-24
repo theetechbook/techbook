@@ -2,7 +2,9 @@ package com.latifah.techbook.database.models
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
 
+@Entity(tableName = "users")
 data class User(
     val uid : String = "",
     val firstName: String = "",

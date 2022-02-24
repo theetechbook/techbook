@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -24,7 +25,9 @@ import com.latifah.techbook.databinding.FragmentRegisterBinding
  * create an instance of this fragment.
  */
 
-class Register : Fragment() {
+class Register : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.GONE
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
