@@ -17,9 +17,8 @@
 
         <ImageView
             android:id="@+id/profV"
-            android:layout_width="95dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="6dp"
+            android:layout_width="111dp"
+            android:layout_height="80dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:contentDescription="@string/todo"
@@ -31,9 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/profV"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="33dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="1dp"
             android:gravity="center"
             android:text="Title Text"
             android:textStyle="bold" />

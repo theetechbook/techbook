@@ -28,7 +28,7 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
     var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private var dummieData = dummieProfile(0)
+    private var dummieData = dummieProfile(44)
     private val args: ProfileArgs by navArgs()
 
     override fun onCreateView(

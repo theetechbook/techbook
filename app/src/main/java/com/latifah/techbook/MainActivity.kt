@@ -22,12 +22,14 @@ import dagger.hilt.android.AndroidEntryPoint
 /**
  * An activity that inflates a layout that has a NavHostFragment.
  */
+
+private lateinit var navController: NavController
+private var _binding: ActivityMainBinding? = null
+private val binding get() = _binding!!
 @AndroidEntryPoint
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var navController: NavController
-    private var _binding: ActivityMainBinding? = null
-    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
+       val  navController = navHostFragment.navController
+
         val builder = AppBarConfiguration.Builder(navController.graph)
         val appBarConfiguration = builder.build()
 
@@ -79,12 +82,12 @@ class MainActivity : AppCompatActivity() {
                     Log.i("Robin", "Navigated to New Fragment")
                     true
                 }
-                R.id.menu_likes -> {
+                R.id.menu_likes2 -> {
                     setCurrentFragment(likesFrag)
                     Log.i("Robin", "Navigated to Likes Fragment")
                     true
                 }
-                R.id.menu_profile -> {
+                R.id.menu_profile2 -> {
                     setCurrentFragment(profileFrag)
                     Log.i("Robin", "Navigated to Profile Fragment")
                     true
