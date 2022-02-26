@@ -44,18 +44,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="menu_profile2">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="30" />
-                            <option name="y" value="-234" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="newPost">
                     <value>
                       <LayoutPositions>
@@ -63,6 +51,18 @@
                           <Point>
                             <option name="x" value="121" />
                             <option name="y" value="121" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="profile2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-244" />
+                            <option name="y" value="-226" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -106,6 +106,18 @@
                           <Point>
                             <option name="x" value="743" />
                             <option name="y" value="-331" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="dashboard3">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="188" />
+                            <option name="y" value="-985" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -156,6 +168,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="likes2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="198" />
+                            <option name="y" value="-644" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="login">
                     <value>
                       <LayoutPositions>
@@ -189,6 +213,18 @@
                           <Point>
                             <option name="x" value="201" />
                             <option name="y" value="-299" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="postFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="184" />
+                            <option name="y" value="-1312" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/homepage"
         android:name="com.latifah.techbook.ui.fragments.Homepage"
-        android:label="fragment_home"
+        android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profile2"
@@ -132,7 +132,22 @@
     <fragment
         android:id="@+id/newPost3"
         android:name="com.latifah.techbook.ui.fragments.NewPost"
-        android:label="New Post"
+        android:label="@string/new_post"
         tools:layout="@layout/fragment_new_post" />
+    <fragment
+        android:id="@+id/likes2"
+        android:name="com.latifah.techbook.ui.fragments.Likes"
+        android:label="@string/likes"
+        tools:layout="@layout/fragment_likes" />
+    <fragment
+        android:id="@+id/dashboard3"
+        android:name="com.latifah.techbook.ui.fragments.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.latifah.techbook.ui.fragments.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" />
 
 </navigation>
