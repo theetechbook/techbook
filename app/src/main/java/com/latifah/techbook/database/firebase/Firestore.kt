@@ -5,6 +5,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.databinding.FragmentLoginBinding
 import com.latifah.techbook.ui.fragments.Login
@@ -19,7 +20,7 @@ class Firestore {
 
         db.collection(Constants.USERS) //Create a collection
             .document(getCurrentUserUID())
-            .set(user)
+            .set(user) //enter user info
             .addOnSuccessListener {
                 registerFragment.registerSuccess(user)
             }
@@ -38,7 +39,12 @@ class Firestore {
             }
     }
 
+    fun addPost(post: Post) {
+        db.collection(Constants.POST)
+            .document()
+    }
     private fun getCurrentUserUID() : String {
         return Firebase.auth.currentUser!!.uid
     }
+
 }
