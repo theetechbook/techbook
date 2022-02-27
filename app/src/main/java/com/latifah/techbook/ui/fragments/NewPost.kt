@@ -10,7 +10,9 @@ import androidx.navigation.Navigation
 import com.latifah.techbook.R
 
 
-class NewPost : Fragment() {
+class NewPost : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.VISIBLE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

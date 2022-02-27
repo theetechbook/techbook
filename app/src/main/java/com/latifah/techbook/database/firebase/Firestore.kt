@@ -7,7 +7,6 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
-import com.latifah.techbook.databinding.FragmentLoginBinding
 import com.latifah.techbook.ui.fragments.Login
 import com.latifah.techbook.ui.fragments.Register
 import com.latifah.techbook.util.Constants

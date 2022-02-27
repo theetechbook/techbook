@@ -11,4 +11,29 @@
     <string name="me">Me</string>
     <string name="inbox">Inbox</string>
     <string name="exit">Logout</string>
+    <string name="Event">Title</string>
+    <string name="Location">Location</string>
+    <string name="Event1">Java expo</string>
+    <string name="Event6">Kotlin expo</string>
+    <string name="Event2">JavaScript expo</string>
+    <string name="Event3">Python expo</string>
+    <string name="Event4">API expo</string>
+    <string name="Event5">MLK expo</string>
+    <string name="Event7">Dev Ops expo</string>
+    <string name="name">Name</string>
+    <string name="email">email</string>
+    <string name="todo">TODO</string>
+    <string name="event_title">event_title</string>
+    <string name="event_location">event_title</string>
+    <string name="favorite">favorite</string>
+    <string name="content_description_favorite">favorite description</string>
+    <string name="search">search</string>
+    <string name="content_description_search">search_description</string>
+    <string name="more">more icon</string>
+    <string name="content_description_more">more description</string>
+    <string name="com_latifah_techbook_ui_fragments_contactfragment">com.latifah.techbook.ui.fragments.ContactFragment</string>
+    <string name="Contacts">Contacts</string>
+    <string name="content_description_one">description</string>
+    <string name="first_name">First Name</string>
+
 </resources>
