@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        setupActionBarWithNavController(navController)
+//        setupActionBarWithNavController(navController)
 
         val dashFrag = Dashboard()
         val eventFrag = Events()

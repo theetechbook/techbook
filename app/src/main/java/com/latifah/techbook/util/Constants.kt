@@ -7,5 +7,5 @@ object Constants {
     const val TECHBOOK_DATABASE_NAME = "techbook_database"
 
     const val USERS : String = "users"
-
+    const val POST : String = "post"
 }
