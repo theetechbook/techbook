@@ -20,5 +20,8 @@
         android:title="New Post"
         app:showAsAction="never"/>
 
-    <item android:title="Item" />
+    <item
+        android:id="@+id/profile2"
+        android:title="Profile"
+        app:showAsAction="never"/>
 </menu>

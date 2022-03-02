@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.latifah.techbook.R
 import com.latifah.techbook.adaptersimport.ProfileAdapter
@@ -25,7 +28,7 @@ import com.latifah.techbook.databinding.FragmentProfileBinding
  * create an instance of this fragment.
  */
 class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
-    var bottomNavigationViewVisibility = View.VISIBLE
+   // var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private var dummieData = dummieProfile(44)
@@ -42,7 +45,13 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
         //    val action = ProfileDirections.actionProfile2ToEventsList()
         //   findNavController().navigate(action)
         //   }
+/*
+        val navController = findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
 
+        val toolbar =view.findViewById<Toolbar>(R.id.toolbar)
+            toolbar.setupWithNavController(navController, appBarConfiguration)
+*/
         val adapter = ProfileAdapter(dummieProfile(6),this)
         val recyclerView = binding.profilerecyclerView
         recyclerView.adapter = adapter
@@ -52,12 +61,15 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
         return view
 
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
-        binding.username.text = args.userName
-        binding.name.text = "${args.firstName}  ${args.lastName}"
+         binding.username.text = args.userName
+         binding.name.text = "${args.firstName}  ${args.lastName}"
+
     }
+
+
 
     private fun dummieProfile(size: Int): ArrayList<ProfileData> {
         val list = ArrayList<ProfileData>()
@@ -94,8 +106,9 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
     // binding.logoutButton.setOnClickListener {
     //private fun logout (?)
     // }
+
     override fun onDestroy() {
         super.onDestroy()
-        // _binding = null
+         _binding = null
     }
 }
