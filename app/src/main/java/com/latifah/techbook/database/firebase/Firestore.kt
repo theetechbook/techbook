@@ -39,9 +39,44 @@ class Firestore {
     }
 
     fun addPost(post: Post) {
-        db.collection(Constants.POST)
-            .document()
+        db.collection("post")
+            .add(post)
+            .addOnSuccessListener { documentReference ->
+                Log.d("add post", documentReference.id)
+                //navigate to home page
+            }
+            .addOnFailureListener { e ->
+                e.message?.let { Log.w("Add Post Err: ", it) }
+            }
     }
+
+    fun getAllPosts() {
+        db.collection("post")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d("GET ALL POSTS", "data: ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("GET ALL POSTS", "Error getting documents: ", exception)
+            }
+    }
+
+    fun getPostByUserId() {
+        db.collection("post")
+            .whereEqualTo("userUid", getCurrentUserUID())
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d("GET ALL POSTS By UID", "data: ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("GET ALL POSTS By UID", "Error getting documents: ", exception)
+            }
+    }
+
     private fun getCurrentUserUID() : String {
         return Firebase.auth.currentUser!!.uid
     }
