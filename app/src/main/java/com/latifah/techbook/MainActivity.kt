@@ -5,16 +5,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.latifah.techbook.R.id
 import com.latifah.techbook.databinding.ActivityMainBinding
 import com.latifah.techbook.ui.fragments.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,13 +45,30 @@ class MainActivity : AppCompatActivity() {
 
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(id.my_nav_host_fragment) as NavHostFragment
        val  navController = navHostFragment.navController
+        binding.bottomNavigationView.setupWithNavController(navController)
+
+      /*navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            if(destination.id == (R.id.profile)) {
+                    toolbar.visibility = View.GONE
+                   binding.bottomNavigationView.visibility = View.GONE
+                } else {
+                toolbar.visibility = View.VISIBLE
+                binding.bottomNavigationView.visibility = View.VISIBLE
+            }
+        }
+
+       */
+
+        navController.addOnDestinationChangedListener { _, _, arguments ->
+           binding.bottomNavigationView.isVisible = arguments?.getBoolean("ShowAppBar", false) == false
+        }
 
         val builder = AppBarConfiguration.Builder(navController.graph)
         val appBarConfiguration = builder.build()
 
-        toolbar.setupWithNavController(navController, appBarConfiguration)
+       toolbar.setupWithNavController(navController, appBarConfiguration)
 
         setupActionBarWithNavController(navController)
 
@@ -67,27 +87,30 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.menu_home -> {
+                id.menu_home -> {
                     setCurrentFragment(dashFrag)
                     Log.i("Robin", "Navigated to Home Fragment")
                     true
                 }
-                R.id.menu_eventsList -> {
+                id.menu_eventsList -> {
                     setCurrentFragment(eventListFrag)
                     Log.i("Robin", "Navigated to Events Lists Fragment")
                     true
                 }
-                R.id.menu_new -> {
+                id.menu_new -> {
                     setCurrentFragment(newPostFrag)
                     Log.i("Robin", "Navigated to New Fragment")
                     true
                 }
-                R.id.menu_likes2 -> {
+                id.menu_likes2 -> {
                     setCurrentFragment(likesFrag)
                     Log.i("Robin", "Navigated to Likes Fragment")
                     true
                 }
-                R.id.menu_profile2 -> {
+                id.menu_profile2 -> {
+                    //val action = Activit.actionLoginToProfile2("Test","test2","test3")
+                   // findNavController().navigate(action)
+                    //loginSuccess()
                     setCurrentFragment(profileFrag)
                     Log.i("Robin", "Navigated to Profile Fragment")
                     true
@@ -98,9 +121,16 @@ class MainActivity : AppCompatActivity() {
         // return
     }
 
-
-
-
+/*
+    fun loginSuccess( ) {
+        val action = LoginDirections.actionLoginToProfile2("Test","test2","test3")
+        findNavController().navigate(action)
+    }
+*/
+private fun setupBottomNavMenu(navController: NavController) {
+    val bottomNav = findViewById<BottomNavigationView>(R.id.my_nav_host_fragment)
+    bottomNav?.setupWithNavController(navController)
+}
 
     fun setBottomNavigationVisibility(visibility: Int) {
         // get the reference of the bottomNavigationView and set the visibility.
@@ -112,7 +142,7 @@ class MainActivity : AppCompatActivity() {
     fun setCurrentFragment(fragment: Fragment) =
         //needed due to nesting of Fragments
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.my_nav_host_fragment, fragment)
+            replace(id.my_nav_host_fragment, fragment)
             commit()
         }
 
@@ -125,7 +155,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.my_nav_host_fragment)
+        val navController = findNavController(id.my_nav_host_fragment)
         return item.onNavDestinationSelected(navController) ||
         super.onOptionsItemSelected(item)
     }

@@ -27,6 +27,7 @@ class TechEventAdapter(
        val textView1: TextView = itemView.findViewById(R.id.txt)
        val textView2: TextView = itemView.findViewById(R.id.sub_txt)
 
+
        init {
            //This refers to the TechViewHolder itself
            itemView.setOnClickListener(this)

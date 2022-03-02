@@ -133,7 +133,11 @@
         android:id="@+id/newPost3"
         android:name="com.latifah.techbook.ui.fragments.NewPost"
         android:label="@string/new_post"
-        tools:layout="@layout/fragment_new_post" />
+        tools:layout="@layout/fragment_new_post" >
+        <action
+            android:id="@+id/action_newPost3_to_dashboard3"
+            app:destination="@id/dashboard3" />
+    </fragment>
     <fragment
         android:id="@+id/likes2"
         android:name="com.latifah.techbook.ui.fragments.Likes"

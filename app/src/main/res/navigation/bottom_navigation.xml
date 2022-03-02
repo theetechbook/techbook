@@ -3,23 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation.xml"
-    android:label="Profile"
-    app:startDestination="@id/profile2">
+    app:startDestination="@id/profile">
 
     <fragment
-        android:id="@+id/profile2"
+        android:id="@+id/profile"
         android:name="com.latifah.techbook.ui.fragments.Profile"
-        android:label="Profile"
+        android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
-        <argument
-            android:name="firstName"
-            app:argType="string" />
-        <argument
-            android:name="lastName"
-            app:argType="string" />
-        <argument
-            android:name="userName"
-            app:argType="string" />
+
     </fragment>
 
     <fragment
@@ -36,11 +27,11 @@
     <fragment
         android:id="@+id/newPost"
         android:name="com.latifah.techbook.ui.fragments.NewPost"
-        android:label="New Post"
+        android:label="New"
         tools:layout="@layout/fragment_new_post" />
     <fragment
         android:id="@+id/dashboard"
         android:name="com.latifah.techbook.ui.fragments.Dashboard"
-        android:label="fragment_dashboard"
+        android:label="DashBoard"
         tools:layout="@layout/fragment_dashboard" />
 </navigation>
