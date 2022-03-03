@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/drawable/loginborder.xml" value="0.1005" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/event.xml" value="0.15081521739130435" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_dashboard.xml" value="0.17395833333333333" />
@@ -11,6 +12,7 @@
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_likes.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_new_post.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_post.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_register.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_splash.xml" value="0.22333333333333336" />
