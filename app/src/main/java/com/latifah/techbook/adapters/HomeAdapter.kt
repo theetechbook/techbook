@@ -14,14 +14,14 @@ import com.latifah.techbook.database.models.HomeData
 import kotlinx.android.extensions.LayoutContainer
 
 class HomeAdapter(private val exampleList: List<HomeData>,private val listener:TechEventAdapter.OnItemClickListener) : RecyclerView.Adapter<HomeAdapter.Viewholder>() {
-    var data: List<HomeData> = emptyList()
-        set(newList) {
-            val calculateDiff = DiffUtil.calculateDiff(DiffCallback(field, newList))
-            calculateDiff.dispatchUpdatesTo(this)
-            field = newList
-        }
+   // var data: List<HomeData> = emptyList()
+     //   set(newList) {
+      //      val calculateDiff = DiffUtil.calculateDiff(DiffCallback(field, newList))
+       //     calculateDiff.dispatchUpdatesTo(this)
+       //     field = newList
+   //     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = exampleList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.home_item,parent,false)
@@ -49,7 +49,7 @@ class HomeAdapter(private val exampleList: List<HomeData>,private val listener:T
         val textView1: TextView = itemView.findViewById(R.id.brand_name)
         val textView2: TextView = itemView.findViewById(R.id.likes_txt)
         val textView3: TextView = itemView.findViewById(R.id.description_txt)
-        val editText: EditText = itemView.findViewById(R.id.likes_txt)
+        //val editText: EditText = itemView.findViewById(R.id.likes_txt)
 
 
 
@@ -69,7 +69,7 @@ class HomeAdapter(private val exampleList: List<HomeData>,private val listener:T
     }
 }
 
-class DiffCallback(val oldList: List<HomeData>, val newList: List<HomeData>) : DiffUtil.Callback() {
+/*class DiffCallback(val oldList: List<HomeData>, val newList: List<HomeData>) : DiffUtil.Callback() {
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition].id == newList[newItemPosition].id
     }
@@ -87,4 +87,5 @@ class DiffCallback(val oldList: List<HomeData>, val newList: List<HomeData>) : D
     override fun getNewListSize(): Int {
         return newList.size
     }
-}
+
+ */

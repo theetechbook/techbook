@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController)
 
-        val dashFrag = Dashboard()
+        val homeFrag = Homepage()
         val eventListFrag = EventsList()
         val newPostFrag = NewPost()
         val likesFrag = Likes()
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 id.menu_home -> {
-                    setCurrentFragment(dashFrag)
+                    setCurrentFragment(homeFrag)
                     Log.i("Robin", "Navigated to Home Fragment")
                     true
                 }

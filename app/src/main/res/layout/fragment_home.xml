@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/homepageFragment"
@@ -8,8 +8,13 @@
     tools:context=".ui.fragments.Homepage">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="408dp"
-        android:layout_height="728dp"
+        android:id="@+id/homeRcyV"
+        android:layout_width="349dp"
+        android:layout_height="667dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:padding="4dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/home_item" />
+
 
     <!--
     <fragment
@@ -42,4 +48,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation" />
 -->
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
