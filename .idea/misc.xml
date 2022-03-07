@@ -3,7 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/drawable/loginborder.xml" value="0.1005" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/drawable/outline_edit_note_black_24dp.xml" value="0.1453125" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/drawable/outline_logout_black_24dp.xml" value="0.1453125" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/activity_main.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/contact_item_layout.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/event.xml" value="0.268" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/events_list_fragment.xml" value="0.12266112266112267" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_contact.xml" value="0.12107396149949341" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_contact_chat.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_contact_receiver.xml" value="0.132" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_dashboard.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_events.xml" value="0.2" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_new_post.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_post.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_register.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/fragment_splash.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/home_item.xml" value="0.3" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/item.xml" value="0.268" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/item_contact.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/post.xml" value="0.1" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/post_item_layout.xml" value="0.268" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/layout/profile_item.xml" value="0.268" />
+        <entry key="..\:/Users/KaYaI/Documents/techbook/app/src/main/res/menu/top_bar.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/event.xml" value="0.15081521739130435" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_dashboard.xml" value="0.17395833333333333" />
@@ -12,15 +36,12 @@
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_likes.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_new_post.xml" value="0.17395833333333333" />
-        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_post.xml" value="0.17395833333333333" />
-        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_profile.xml" value="0.3" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_register.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_splash.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_timeline.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/post.xml" value="0.25" />
-        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/post_item_layout.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/post.xml" value="0.15081521739130435" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/menu/bottom_navigation.xml" value="0.1712820512820513" />
-        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/menu/top_app_bar.xml" value="0.1" />
         <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/menu/top_navigation.xml" value="0.1712820512820513" />
       </map>
     </option>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_profile"
-        android:title="@string/me"
+    <item android:id="@+id/menu_profile2"
+        android:title="Profile"
         android:icon="@drawable/outline_account_circle_black_24dp"
         />
-    <item android:id="@+id/menu_events"
+    <item android:id="@+id/menu_eventsList"
         android:title="@string/near_me"
         android:icon="@drawable/outline_location_on_black_24dp"
         />
@@ -12,7 +12,7 @@
         android:title="@string/new_post"
         android:icon="@drawable/outline_add_circle_black_24dp"
         />
-    <item android:id="@+id/menu_likes"
+    <item android:id="@+id/menu_likes2"
         android:title="@string/likes"
         android:icon="@drawable/outline_favorite_black_24dp"
         />
