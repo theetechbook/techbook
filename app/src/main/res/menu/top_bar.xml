@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/eventsList"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:title="Events List"
+        app:showAsAction ="always"/>
+
+
+    <item
+        android:id="@+id/contactFragment2"
+        android:icon="@drawable/ic_mail_24"
+        android:title="ContactFragment"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/newPost3"
+        android:title="New Post"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/profile2"
+        android:title="Profile"
+        app:showAsAction="never"/>
+</menu>

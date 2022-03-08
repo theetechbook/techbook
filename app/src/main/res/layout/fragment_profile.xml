@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,8 +10,8 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="139dp"
-        android:layout_height="130dp"
+        android:layout_width="121dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="92dp"
         android:background="#9C27B0"
         android:visibility="visible"
@@ -18,20 +19,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
+        android:layout_width="103dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
         android:text="LOCATION"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
@@ -59,9 +59,11 @@
         android:background="#FFC107"
         android:scrollbars="vertical"
         android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/profile_item"/>
 
     <!--
     <fragment
@@ -75,81 +77,94 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="123dp"
-        android:layout_height="21dp"
+        android:layout_width="149dp"
+        android:layout_height="40dp"
         android:layout_marginTop="9dp"
+        android:layout_marginBottom="37dp"
         android:text="username"
-        android:textAlignment="center"
-        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.69"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="131dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="44dp"
         android:text="firstname lastname"
-        android:textAlignment="center"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.701"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/message_profile"
-        android:layout_width="137dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="12dp"
         android:text="Talk to me!"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/avatar" />
+    <!--
+      <com.google.android.material.bottomnavigation.BottomNavigationView
+          android:id="@+id/bottom_nav"
+          android:layout_width="match_parent"
+          android:layout_height="58dp"
+          app:elevation="2dp"
+          app:itemBackground="@android:color/white"
+          app:itemIconSize="24dp"
+          app:labelVisibilityMode="labeled"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:menu="@menu/bottom_navigation" />
+   -->
+      <Button
+          android:id="@+id/button_contact"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="28dp"
+          android:layout_marginBottom="8dp"
+          android:text="Button"
+          app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+          app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        app:elevation="2dp"
-        app:itemBackground="@android:color/white"
-        app:itemIconSize="24dp"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation" />
+      <ImageButton
+          android:id="@+id/save_profile_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="18dp"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="13dp"
+          android:minHeight="48dp"
+          android:src="@drawable/outline_edit_note_black_24dp"
+          app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/message_profile"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="1.0"
+          tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageButton
-        android:id="@+id/save_profile_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="13dp"
-        android:minHeight="48dp"
-        android:src="@drawable/outline_edit_note_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:id="@+id/logout_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:clickable="true"
+          android:src="@drawable/outline_logout_black_24dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.957"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.0"
+          tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:src="@drawable/outline_logout_black_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
