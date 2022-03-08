@@ -60,12 +60,6 @@
         <argument
             android:name="userName"
             app:argType="string"/>
-        <action
-            android:id="@+id/action_profile2_to_eventsList"
-            app:destination="@id/eventsList" />
-        <action
-            android:id="@+id/action_profile2_to_contactFragment2"
-            app:destination="@id/contactFragment2" />
     </fragment>
     <fragment
         android:id="@+id/eventsList"
@@ -148,10 +142,5 @@
         android:name="com.latifah.techbook.ui.fragments.Dashboard"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-    <fragment
-        android:id="@+id/postFragment"
-        android:name="com.latifah.techbook.ui.fragments.PostFragment"
-        android:label="fragment_post"
-        tools:layout="@layout/fragment_post" />
 
 </navigation>

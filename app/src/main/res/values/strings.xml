@@ -23,8 +23,7 @@
     <string name="name">Name</string>
     <string name="email">email</string>
     <string name="todo">TODO</string>
-    <string name="event_title">event_title</string>
-    <string name="event_location">event_title</string>
+    <string name="event_location">event_location</string>
     <string name="favorite">favorite</string>
     <string name="content_description_favorite">favorite description</string>
     <string name="search">search</string>
@@ -35,5 +34,11 @@
     <string name="Contacts">Contacts</string>
     <string name="content_description_one">description</string>
     <string name="first_name">First Name</string>
+    <string name="time_status">time_status</string>
+    <string name="venue">venue</string>
+    <string name="online_venue">online_venue</string>
+    <string name="event_title">event_title</string>
+    <string name="this_is_where_the_short_event_description_would_go_a_string_called_shortdescription">This is where the short event description would go. A string called shortDescription.</string>
+    <string name="date_time">date_time</string>
 
 </resources>
