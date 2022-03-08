@@ -45,13 +45,7 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
         //    val action = ProfileDirections.actionProfile2ToEventsList()
         //   findNavController().navigate(action)
         //   }
-/*
-        val navController = findNavController()
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
 
-        val toolbar =view.findViewById<Toolbar>(R.id.toolbar)
-            toolbar.setupWithNavController(navController, appBarConfiguration)
-*/
         val adapter = ProfileAdapter(dummieProfile(6),this)
         val recyclerView = binding.profilerecyclerView
         recyclerView.adapter = adapter

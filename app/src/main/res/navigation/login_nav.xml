@@ -53,13 +53,16 @@
         tools:layout="@layout/fragment_profile" >
         <argument
             android:name="firstName"
-            app:argType="string"/>
+            app:argType="string"
+            android:defaultValue='" "' />
         <argument
             android:name="lastName"
-            app:argType="string"/>
+            app:argType="string"
+            android:defaultValue='" "' />
         <argument
             android:name="userName"
-            app:argType="string"/>
+            app:argType="string"
+            android:defaultValue='" "' />
     </fragment>
     <fragment
         android:id="@+id/eventsList"
