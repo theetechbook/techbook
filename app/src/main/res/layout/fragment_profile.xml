@@ -13,8 +13,8 @@
         android:id="@+id/avatar"
         android:layout_width="121dp"
         android:layout_height="112dp"
-        android:layout_marginBottom="92dp"
-        android:background="#9C27B0"
+        android:layout_marginBottom="80dp"
+        android:background="@color/colorBlack"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.623"
+        app:layout_constraintHorizontal_bias="0.626"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"
         app:layout_constraintVertical_bias="0.0" />
@@ -95,16 +95,16 @@
         app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="162dp"
         android:layout_height="32dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="72dp"
         android:text="firstname lastname"
         android:textAlignment="center"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBigText"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,17 +112,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/message_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="12dp"
-        android:text="Talk to me!"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/avatar" />
     <!--
       <com.google.android.material.bottomnavigation.BottomNavigationView
           android:id="@+id/bottom_nav"
@@ -138,15 +127,20 @@
           app:layout_constraintStart_toStartOf="parent"
           app:menu="@menu/bottom_navigation" />
    -->
+
     <Button
-        android:id="@+id/button_contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="8dp"
-        android:text="Button"
+        android:id="@+id/message_profile"
+        android:layout_width="121dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="12dp"
+        android:text="Talk to me!"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/save_profile_button"
@@ -159,6 +153,7 @@
         android:src="@drawable/outline_edit_note_black_24dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/message_profile"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

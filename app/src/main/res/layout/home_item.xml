@@ -12,7 +12,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:background="@color/colorBlack">
 
         <ImageView
             android:id="@+id/logo"
@@ -32,7 +33,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/black"
+            android:background="@color/colorAccent"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -43,6 +46,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorAccent"
             android:src="@drawable/ic_more_vert_" />
 
     </RelativeLayout>
@@ -53,13 +57,15 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="440dp"
         android:layout_below="@+id/post_header_layout"
         android:layout_marginTop="3dp"
+        android:background="@color/colorBlack"
         android:src="@drawable/happy" />
 
     <RelativeLayout
         android:id="@+id/post_footer_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/post_img">
+        android:layout_below="@+id/post_img"
+        android:background="@color/colorAccent">
 
         <ImageView
             android:id="@+id/heart"
@@ -67,6 +73,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
+            android:backgroundTint="@color/colorBigText"
             android:src="@drawable/ic_favorite_24" />
 
         <ImageView
