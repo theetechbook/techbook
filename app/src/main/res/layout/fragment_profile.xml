@@ -6,6 +6,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ui.fragments.Profile">
 
     <ImageView
@@ -28,12 +29,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="10dp"
         android:text="LOCATION"
-        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -47,6 +51,8 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/profilerecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,15 +61,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/profilerecyclerView"
         android:layout_width="408dp"
-        android:layout_height="392dp"
-        android:background="#FFC107"
+        android:layout_height="362dp"
+        android:background="@color/colorBlack"
         android:scrollbars="vertical"
         android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/profile_item"/>
+        tools:listitem="@layout/profile_item" />
 
     <!--
     <fragment
@@ -77,24 +83,30 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="149dp"
-        android:layout_height="40dp"
+        android:layout_width="162dp"
+        android:layout_height="26dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="37dp"
         android:text="username"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="131dp"
-        android:layout_height="36dp"
+        android:layout_width="162dp"
+        android:layout_height="32dp"
         android:layout_marginTop="44dp"
         android:text="firstname lastname"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,45 +138,45 @@
           app:layout_constraintStart_toStartOf="parent"
           app:menu="@menu/bottom_navigation" />
    -->
-      <Button
-          android:id="@+id/button_contact"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="28dp"
-          android:layout_marginBottom="8dp"
-          android:text="Button"
-          app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-          app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/button_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintStart_toStartOf="parent" />
 
-      <ImageButton
-          android:id="@+id/save_profile_button"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="18dp"
-          android:layout_marginEnd="16dp"
-          android:layout_marginBottom="13dp"
-          android:minHeight="48dp"
-          android:src="@drawable/outline_edit_note_black_24dp"
-          app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/message_profile"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="1.0"
-          tools:ignore="SpeakableTextPresentCheck" />
+    <ImageButton
+        android:id="@+id/save_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="13dp"
+        android:minHeight="48dp"
+        android:src="@drawable/outline_edit_note_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/message_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-      <com.google.android.material.floatingactionbutton.FloatingActionButton
-          android:id="@+id/logout_button"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="16dp"
-          android:clickable="true"
-          android:src="@drawable/outline_logout_black_24dp"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.957"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.0"
-          tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:src="@drawable/outline_logout_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
