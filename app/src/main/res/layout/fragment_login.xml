@@ -77,7 +77,7 @@
         android:layout_height="62dp"
         android:layout_marginBottom="80dp"
         android:background="@color/colorSecondaryText"
-        android:backgroundTint="@color/light_blue_900"
+        android:backgroundTint="@color/colorPrimary"
         android:backgroundTintMode="src_over"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
