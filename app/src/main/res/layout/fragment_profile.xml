@@ -6,7 +6,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorBlack"
     tools:context=".ui.fragments.Profile">
 
     <ImageView
@@ -24,17 +24,18 @@
 
     <TextView
         android:id="@+id/location"
-        android:layout_width="103dp"
-        android:layout_height="32dp"
+        android:layout_width="193dp"
+        android:layout_height="26dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="casual"
         android:text="LOCATION"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"
         app:layout_constraintVertical_bias="0.0" />
@@ -46,6 +47,7 @@
         android:layout_marginBottom="12dp"
         android:background="@android:color/transparent"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="This is where my profile description would be...IF I HAD ONE! Soon..."
         android:inputType="textMultiLine"
         android:paddingLeft="8dp"
@@ -83,10 +85,11 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="162dp"
-        android:layout_height="26dp"
+        android:layout_width="195dp"
+        android:layout_height="33dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="37dp"
+        android:fontFamily="casual"
         android:text="username"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
@@ -95,16 +98,17 @@
         app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.018" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="162dp"
-        android:layout_height="32dp"
+        android:layout_width="195dp"
+        android:layout_height="30dp"
         android:layout_marginTop="72dp"
+        android:fontFamily="monospace"
         android:text="firstname lastname"
         android:textAlignment="center"
-        android:textColor="@color/colorBigText"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,11 +134,16 @@
 
     <Button
         android:id="@+id/message_profile"
-        android:layout_width="121dp"
-        android:layout_height="48dp"
+        android:layout_width="118dp"
+        android:layout_height="51dp"
         android:layout_marginTop="17dp"
         android:layout_marginBottom="12dp"
-        android:text="Talk to me!"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="monospace"
+        android:text="Contact"
+        android:textColorLink="@color/colorPrimary"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/profiletext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.055"
@@ -144,8 +153,8 @@
 
     <ImageButton
         android:id="@+id/save_profile_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="171dp"
+        android:layout_height="36dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="13dp"
@@ -161,17 +170,19 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="47dp"
+        android:layout_height="49dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
+        android:foregroundTint="#4A2222"
         android:src="@drawable/outline_logout_black_24dp"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.013"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

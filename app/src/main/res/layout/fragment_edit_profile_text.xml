@@ -5,17 +5,19 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.EditProfileTextFragment" >
+    android:background="@color/colorBlack"
+    tools:context=".ui.fragments.EditProfileTextFragment">
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="273dp"
-        android:layout_height="121dp"
+        android:layout_width="324dp"
+        android:layout_height="252dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="click here to edit"
         android:inputType="textMultiLine"
         android:textAlignment="center"
+        android:textColor="@color/colorWhite"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,10 +27,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="311dp"
-        android:layout_height="124dp"
+        android:layout_width="316dp"
+        android:layout_height="167dp"
+        android:fontFamily="casual"
         android:text="Give yourself a little flair. Say whatever you want here!"
         android:textAlignment="center"
+        android:textColor="@color/colorWhite"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,11 +43,14 @@
         android:id="@+id/confirm_profile_edit_button"
         android:layout_width="203dp"
         android:layout_height="76dp"
-        android:layout_marginTop="137dp"
+        android:layout_marginBottom="76dp"
+        android:fontFamily="monospace"
         android:text="Confirm Changes"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.873" />
 </androidx.constraintlayout.widget.ConstraintLayout>
