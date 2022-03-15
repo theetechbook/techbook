@@ -3,8 +3,8 @@
     <color name="colorPrimary">#060F40</color>
     <color name="colorAccent">#2196F3</color>
     <color name="colorBigText">#2196F3</color>
-    <color name="colorSmallText">#508FC1</color>
+    <color name="colorSmallText">#060F40</color>
     <color name="colorSecondaryText">#8B68C8</color>
-    <color name="colorBlack">#000000</color>
-    <color name="colorWhite">#B1B1B1</color>
+    <color name="colorBlack">#050609</color>
+    <color name="colorWhite">#EFEFEF</color>
 </resources>
