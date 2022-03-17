@@ -14,14 +14,14 @@ abstract class BaseFragment: Fragment() {
         // get the reference of the parent activity and call the setBottomNavigationVisibility method.
         if (activity is MainActivity) {
             var  mainActivity = activity as MainActivity
-            mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
+          //  mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
         }
     }
     override fun onResume() {
         super.onResume()
         if (activity is MainActivity) {
             var  mainActivity = activity as MainActivity
-            mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
+           // mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
         }
     }
 }

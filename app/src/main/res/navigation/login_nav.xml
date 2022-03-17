@@ -44,28 +44,25 @@
     <fragment
         android:id="@+id/homepage"
         android:name="com.latifah.techbook.ui.fragments.Homepage"
-        android:label="fragment_home"
+        android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profile2"
         android:name="com.latifah.techbook.ui.fragments.Profile"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <argument
             android:name="firstName"
-            app:argType="string"/>
+            app:argType="string"
+            android:defaultValue='" "' />
         <argument
             android:name="lastName"
-            app:argType="string"/>
+            app:argType="string"
+            android:defaultValue='" "' />
         <argument
             android:name="userName"
-            app:argType="string"/>
-        <action
-            android:id="@+id/action_profile2_to_eventsList"
-            app:destination="@id/eventsList" />
-        <action
-            android:id="@+id/action_profile2_to_contactFragment"
-            app:destination="@id/contactFragment" />
+            app:argType="string"
+            android:defaultValue='" "' />
     </fragment>
     <fragment
         android:id="@+id/eventsList"
@@ -73,49 +70,80 @@
         android:label="Near Me"
         tools:layout="@layout/events_list_fragment" >
         <action
-            android:id="@+id/action_eventsList_to_events"
-            app:destination="@id/events"
-            app:popUpTo="@id/events"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_eventsList_to_event"
+            app:destination="@id/event" />
 
     </fragment>
     <fragment
-        android:id="@+id/events"
+        android:id="@+id/event"
         android:name="com.latifah.techbook.ui.fragments.Events"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" >
+        android:label="@string/Event"
+        tools:layout="@layout/event">
         <argument
-            android:name="message1"
-            app:argType="string"
-            android:defaultValue="default" />
+            android:name="eventName"
+            app:argType="string" />
         <argument
-            android:name="message2"
-            app:argType="string"
-            android:defaultValue="default" />
-        <action
-            android:id="@+id/action_events_to_contactFragment"
-            app:destination="@id/contactFragment" />
-        <action
-            android:id="@+id/action_events_to_eventsList"
-            app:destination="@id/eventsList" />
-
+            android:name="eventDate"
+            app:argType="string" />
+        <argument
+            android:name="eventTime"
+            app:argType="string" />
+        <argument
+            android:name="eventVenue"
+            app:argType="string" />
+        <argument
+            android:name="onlineVenue"
+            app:argType="string" />
+        <argument
+            android:name="eventDescription"
+            app:argType="string" />
     </fragment>
+    <argument
+        android:name="name"
+        app:argType="string"
+        android:defaultValue="default" />
+    <argument
+        android:name="location"
+        app:argType="string"
+        android:defaultValue="default" />
     <fragment
-        android:id="@+id/contactFragment"
+        android:id="@+id/contactFragment2"
         android:name="com.latifah.techbook.ui.fragments.ContactFragment"
-        android:label="@string/Contacts"
-        tools:layout="@layout/contact_item_layout">
+        android:label="ContactFragment" >
         <action
-            android:id="@+id/action_contactFragment_to_contactChat"
-            app:destination="@id/contactChat" />
+            android:id="@+id/action_contactFragment2_to_contactReceiverFragment"
+            app:destination="@id/contactReceiverFragment" />
     </fragment>
     <fragment
-        android:id="@+id/contactChat"
-        android:name="com.latifah.techbook.ui.fragments.ContactChat"
-        android:label="fragment_contact_chat"
-        tools:layout="@layout/fragment_contact_chat" >
-        <action
-            android:id="@+id/action_contactChat_to_contactFragment"
-            app:destination="@id/contactFragment" />
+        android:id="@+id/contactReceiverFragment"
+        android:name="com.latifah.techbook.ui.fragments.ContactReceiverFragment"
+        android:label="Receiver"
+        tools:layout="@layout/fragment_contact_receiver" >
+        <argument
+            android:name="contactName"
+            app:argType="string" />
+        <argument
+            android:name="contactEmail"
+            app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/newPost3"
+        android:name="com.latifah.techbook.ui.fragments.NewPost"
+        android:label="@string/new_post"
+        tools:layout="@layout/fragment_new_post" >
+        <action
+            android:id="@+id/action_newPost3_to_dashboard3"
+            app:destination="@id/dashboard3" />
+    </fragment>
+    <fragment
+        android:id="@+id/likes2"
+        android:name="com.latifah.techbook.ui.fragments.Likes"
+        android:label="@string/likes"
+        tools:layout="@layout/fragment_likes" />
+    <fragment
+        android:id="@+id/dashboard3"
+        android:name="com.latifah.techbook.ui.fragments.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
 </navigation>
