@@ -2,7 +2,9 @@ package com.latifah.techbook.ui.fragments
 
 import android.app.Activity
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,10 +12,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.latifah.techbook.R
+import com.latifah.techbook.database.firebase.Firestore
+import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.databinding.FragmentNewPostBinding
+import java.util.*
 
 
 class NewPost : BaseFragment() {
@@ -64,5 +71,7 @@ class NewPost : BaseFragment() {
             imageUri = data?.data!!
         }
     }
+
+
 
 }

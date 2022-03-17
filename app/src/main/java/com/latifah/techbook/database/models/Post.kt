@@ -4,13 +4,14 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Post(
-    val id : Int,
-    val text: String,
-    val gif: String,
-    val userUid : String
+    val userUid : String = "",
+    val text : String = "",
+    val gif : String = "",
+    val username : String = "",
+    val profile_image_url : String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readInt()!!,
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
@@ -18,7 +19,7 @@ data class Post(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
+        parcel.writeString(userUid)
         parcel.writeString(text)
         parcel.writeString(gif)
         parcel.writeString(userUid)
