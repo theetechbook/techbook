@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -61,6 +62,7 @@ class NewPost : BaseFragment() {
         }
 
         binding.confirmNewMedia.setOnClickListener {
+            Log.d("confirm btn", "onViewCreated: clicked")
             uploadGif()
         }
     }
@@ -89,6 +91,8 @@ class NewPost : BaseFragment() {
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun uploadGif() {
+        Log.d("upload Gif", "onViewCreated: in upload gif")
+
         val storageRef = storage.reference
 
         val formatter = SimpleDateFormat("MM_dd_yyyy_HH_mm_ss", Locale.getDefault())
@@ -111,6 +115,8 @@ class NewPost : BaseFragment() {
                 //I want to add the post to firestore here as well
                 val post = Post(Firestore().getCurrentUserUID(), binding.addCaption.text.toString(), "$downloadUri", "namiswan", "$downloadUri" )
                 Firestore().addPost(post)
+                val action = NewPostDirections.actionNewPost3ToHomepage()
+                findNavController().navigate(action)
                 Log.d("DOWNLOAD URI", "$downloadUri")
             } else {
                 //handle error
