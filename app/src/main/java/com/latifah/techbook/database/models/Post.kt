@@ -8,7 +8,7 @@ data class Post(
     val text : String = "",
     val gif : String = "",
     val username : String = "",
-    val profile_image_url : String = ""
+    val gif_image_url : String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -21,7 +21,7 @@ data class Post(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(userUid)
         parcel.writeString(text)
-        parcel.writeString(gif)
+        parcel.writeString(gif_image_url)
         parcel.writeString(userUid)
     }
 
