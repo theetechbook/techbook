@@ -1,5 +1,6 @@
 package com.latifah.techbook.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,31 +16,35 @@ class NewPost : BaseFragment() {
 
     override var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentNewPostBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
-
+    companion object {
+        val IMAGE_REQUEST_CODE = 1_000;
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         // initialize variable, inflate layout
         _binding = FragmentNewPostBinding.inflate(inflater, container, false)
-
-        val view = binding?.root
-
-        //buttons, actionables
-        // view.findViewById<Button>(R.id.confirm_new_media).setOnClickListener {
-        //    Navigation.findNavController(view).navigate(R.id.action_newPost2_to_dashboard2)
-
-
-        // return
-        return view
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.addMedia.setOnClickListener {
+            selectMedia()
+        }
+
     }
 
+    //TODO: UPDATE THIS FUNCTION TO USE UPDATED startActivityForResult FUNCTION
+    private fun selectMedia() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+
+    startActivityForResult(intent, IMAGE_REQUEST_CODE)
+}
 
 }
