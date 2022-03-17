@@ -6,9 +6,8 @@ import android.os.Parcelable
 data class Post(
     val userUid : String = "",
     val text : String = "",
-    val gif : String = "",
+    val gif_url : String = "",
     val username : String = "",
-    val gif_image_url : String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -21,8 +20,8 @@ data class Post(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(userUid)
         parcel.writeString(text)
-        parcel.writeString(gif_image_url)
-        parcel.writeString(userUid)
+        parcel.writeString(gif_url)
+        parcel.writeString(username)
     }
 
     override fun describeContents(): Int {
