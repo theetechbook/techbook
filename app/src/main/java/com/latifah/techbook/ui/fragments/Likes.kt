@@ -29,6 +29,6 @@ class Likes : BaseFragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_likes, container, false)
+        return inflater.inflate(R.layout.likes_list_layout, container, false)
     }
 }
