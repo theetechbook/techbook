@@ -8,9 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.database.models.EventsToday
+import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.PostData
 
 class PostAdapter(
+//    private val postList: List<Post>,
+
     private val postList: List<PostData>,
     private val listener: OnItemClickListener
 ) :
@@ -28,6 +31,11 @@ class PostAdapter(
         val textView3: TextView = itemView.findViewById(R.id.post_lastname)
         val textView4: TextView = itemView.findViewById(R.id.post_caption)
 
+//        val username: TextView = itemView.findViewById(R.id.post_username)
+//        val gif: ImageView = itemView.findViewById(R.id.imageView3)
+//        val userUid: TextView = itemView.findViewById(R.id.post_firstname)
+////        val textView3: TextView = itemView.findViewById(R.id.post_lastname)
+//        val text: TextView = itemView.findViewById(R.id.post_caption)
         init {
             //This refers to the TechViewHolder itself
             itemView.setOnClickListener(this)
@@ -62,6 +70,11 @@ class PostAdapter(
         holder.textView2.text = currentItem.text2
         holder.textView3.text = currentItem.text3
         holder.textView4.text = currentItem.text4
+
+//        holder.textView1.text = currentItem.text1
+//        holder.textView2.text = currentItem.text2
+//        holder.textView3.text = currentItem.text3
+//        holder.textView4.text = currentItem.text4
     }
 
 }
