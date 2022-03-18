@@ -113,7 +113,7 @@ class NewPost : BaseFragment() {
             if (task.isSuccessful) {
                 val downloadUri = task.result
                 //I want to add the post to firestore here as well
-                val post = Post(Firestore().getCurrentUserUID(), binding.addCaption.text.toString(), "$downloadUri", "namiswan", "$downloadUri" )
+                val post = Post("${Firestore().getCurrentUserUID() }", "${binding.addCaption.text.toString()}", "$downloadUri", "namiswan")
                 Firestore().addPost(post)
                 val action = NewPostDirections.actionNewPost3ToHomepage()
                 findNavController().navigate(action)
