@@ -2,7 +2,6 @@ package com.latifah.techbook.adaptersimport
 
 import android.content.ClipData
 import android.view.LayoutInflater
-import com.latifah.techbook.R
 import com.latifah.techbook.database.models.EventsToday
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.latifah.techbook.R
 import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.ProfileData
 import kotlinx.android.extensions.LayoutContainer

@@ -1,7 +1,6 @@
 package com.latifah.techbook.adaptersimport
 
 import android.view.LayoutInflater
-import com.latifah.techbook.R
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -9,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.latifah.techbook.R
 import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.HomeData
 import kotlinx.android.extensions.LayoutContainer
@@ -66,6 +66,9 @@ class HomeAdapter(private val exampleList: List<HomeData>,private val listener:T
 
         }
 
+    }
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 }
 
