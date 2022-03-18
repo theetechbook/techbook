@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId "com.latifah.techbook"
-        minSdkVersion 23
+        minSdkVersion 28
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
