@@ -93,7 +93,7 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
     }
 
     //binding.saveProfileButton.setOnClickListener {
-    //    //private fun saveProfileText (?)
+    //    open EditProfileTextFragment with Intent(?)
     // }
 
     //This is the code for the button to "log out".

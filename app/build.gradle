@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId "com.latifah.techbook"
-        minSdkVersion 23
+        minSdkVersion 28
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -123,9 +123,6 @@ dependencies {
     implementation 'com.google.dagger:hilt-android:2.40.3'
     kapt 'com.google.dagger:hilt-compiler:2.40.3'
 
-
-
-
     //Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:29.0.4')
 
@@ -138,4 +135,11 @@ dependencies {
 
     //Firestore
     implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    // Cloud Storage library
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }

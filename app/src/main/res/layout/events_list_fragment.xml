@@ -10,11 +10,11 @@
     tools:context=".ui.fragments.EventsList">
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcyview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item" />
 
