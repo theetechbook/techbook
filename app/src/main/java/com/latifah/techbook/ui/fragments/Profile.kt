@@ -21,12 +21,14 @@ import com.latifah.techbook.database.models.DataSource
 import com.latifah.techbook.database.models.EventsToday
 import com.latifah.techbook.database.models.ProfileData
 import com.latifah.techbook.databinding.FragmentProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass.
  * Use the [Profile.newInstance] factory method to
  * create an instance of this fragment.
  */
+@AndroidEntryPoint
 class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
    // var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentProfileBinding? = null

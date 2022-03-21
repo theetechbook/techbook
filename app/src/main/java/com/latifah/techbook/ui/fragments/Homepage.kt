@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -20,15 +21,19 @@ import com.latifah.techbook.adaptersimport.HomeAdapter
 import com.latifah.techbook.database.models.ContactItem
 import com.latifah.techbook.database.models.HomeData
 import com.latifah.techbook.databinding.FragmentHomeBinding
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass.
  * Use the [Homepage.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+@AndroidEntryPoint
 class Homepage : BaseFragment(), TechEventAdapter.OnItemClickListener {
 
-
+    private val viewModel: TechbookViewModel by viewModels()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -42,7 +47,9 @@ class Homepage : BaseFragment(), TechEventAdapter.OnItemClickListener {
     ): View? {
         // initialize variable, inflate layout
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-     val view = binding.root
+        val view = binding.root
+
+        viewModel.getAllPosts()
 
         val adapter = HomeAdapter(homeDumData(30), this)
       binding.homeRcyV.adapter = adapter
