@@ -12,6 +12,8 @@ import com.latifah.techbook.ui.fragments.Register
 import com.latifah.techbook.util.Constants
 
 class Firestore {
+
+/*
     private val db = Firebase.firestore
 
     fun registerUser(user: User, registerFragment : Register) {
@@ -51,12 +53,16 @@ class Firestore {
     }
 
     fun getAllPosts() {
+        val posts = mutableListOf<Map<String, Any>>()
         db.collection("post")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     Log.d("GET ALL POSTS", "data: ${document.data}")
+                    posts.add(document.data)
                 }
+                Log.d("GET ALL POSTS List", "data: ${posts}")
+
             }
             .addOnFailureListener { exception ->
                 Log.d("GET ALL POSTS", "Error getting documents: ", exception)
@@ -80,5 +86,5 @@ class Firestore {
     private fun getCurrentUserUID() : String {
         return Firebase.auth.currentUser!!.uid
     }
-
+*/
 }

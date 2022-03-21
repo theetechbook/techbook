@@ -9,8 +9,9 @@ import android.widget.Button
 import androidx.navigation.Navigation
 import com.latifah.techbook.R
 import com.latifah.techbook.databinding.FragmentNewPostBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class NewPost : BaseFragment() {
 
     override var bottomNavigationViewVisibility = View.VISIBLE
