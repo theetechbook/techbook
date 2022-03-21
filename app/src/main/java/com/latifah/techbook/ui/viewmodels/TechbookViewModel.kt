@@ -44,4 +44,10 @@ class TechbookViewModel @Inject constructor(
 
     }
 
+    fun getCurrentUserUID() : String {
+
+       return mainRepository.getCurrentUserUID()
+
+    }
+
 }
