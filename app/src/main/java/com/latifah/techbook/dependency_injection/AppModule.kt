@@ -2,6 +2,8 @@ package com.latifah.techbook.dependency_injection
 
 import android.content.Context
 import androidx.room.Room
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.util.Constants.BASE_URL
 import com.latifah.techbook.util.Constants.TECHBOOK_DATABASE_NAME
 import com.latifah.techbook.database.TechbookDB
@@ -18,10 +20,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
+import com.google.firebase.firestore.ktx.firestore
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideDBInstance(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
+    }
 
     @Singleton
     @Provides
@@ -35,7 +44,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideTechbookDao(db: TechbookDB) = db.getTechbookDao()
+    fun provideTechbookDao(roomDB: TechbookDB) = roomDB.getTechbookDao()
 
     @Singleton
     @Provides

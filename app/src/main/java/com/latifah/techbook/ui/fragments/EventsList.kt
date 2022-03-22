@@ -34,7 +34,7 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
    // var bottomNavigationViewVisibility = View.VISIBLE
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        navController = findNavController(activity!!, R.id.my_nav_host_fragment)
+        navController = findNavController(requireActivity(), R.id.my_nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 
         val toolbar = view?.findViewById<Toolbar>(R.id.toolbar)

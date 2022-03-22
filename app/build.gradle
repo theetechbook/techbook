@@ -9,7 +9,7 @@ plugins {
     id "kotlin-parcelize"
 
     //SafeArgs for Navigation
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'androidx.navigation.safeargs'
 
     //Dagger Hilt Plugin
     id 'dagger.hilt.android.plugin'

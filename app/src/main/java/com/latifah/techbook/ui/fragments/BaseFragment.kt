@@ -8,6 +8,7 @@ import com.latifah.techbook.MainActivity
 abstract class BaseFragment: Fragment() {
 
     protected open var bottomNavigationViewVisibility = View.VISIBLE
+    protected open var toolbarVisibility = View.VISIBLE
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

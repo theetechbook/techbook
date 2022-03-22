@@ -32,7 +32,6 @@ private lateinit var navController: NavController
 
 
 @AndroidEntryPoint
-
 class MainActivity : AppCompatActivity() {
     private lateinit var _binding: ActivityMainBinding
     private val binding get() = _binding!!
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
 
  fun loginSuccess() {
-         val action = LoginDirections.actionLoginToProfile2("Test", "test2", "test3")
+         val action = LoginDirections.actionLoginToProfile2()
          findNavController(R.id.my_nav_host_fragment).navigate(action)
      }
 
@@ -87,6 +86,10 @@ class MainActivity : AppCompatActivity() {
          binding.bottomNavigationView.visibility = visibility
      }
 
+    fun setToolbarVisibility(visibility: Int) {
+        // get the reference of the bottomNavigationView and set the visibility.
+        binding.toolbar.visibility = visibility
+    }
 
      fun setCurrentFragment(fragment: Fragment) =
          //needed due to nesting of Fragments

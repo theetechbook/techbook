@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.latifah.techbook.R
+import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.databinding.FragmentRegisterBinding
 import com.latifah.techbook.databinding.FragmentSplashBinding
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass.
@@ -18,9 +22,13 @@ import com.latifah.techbook.databinding.FragmentSplashBinding
  * create an instance of this fragment.
  */
 
+@AndroidEntryPoint
 class Splash : BaseFragment() {
 
+    private val viewModel: TechbookViewModel by viewModels()
+
     override var bottomNavigationViewVisibility = View.GONE
+    override var toolbarVisibility = View.GONE
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
@@ -47,6 +55,8 @@ class Splash : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         binding.registerButtonSplash.setOnClickListener {
             val action = SplashDirections.actionSplashToRegister()

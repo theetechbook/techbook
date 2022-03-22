@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -24,10 +25,14 @@ import com.latifah.techbook.R
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.databinding.FragmentNewPostBinding
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-
+@AndroidEntryPoint
 class NewPost : BaseFragment() {
+
+    private val viewModel: TechbookViewModel by viewModels()
 
     override var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentNewPostBinding? = null
@@ -113,8 +118,8 @@ class NewPost : BaseFragment() {
             if (task.isSuccessful) {
                 val downloadUri = task.result
                 //I want to add the post to firestore here as well
-                val post = Post("${Firestore().getCurrentUserUID() }", "${binding.addCaption.text.toString()}", "$downloadUri", "namiswan")
-                Firestore().addPost(post)
+                val post = Post("${viewModel.getCurrentUserUID() }", "${binding.addCaption.text.toString()}", "$downloadUri", "namiswan")
+                viewModel.addPost(post)
                 val action = NewPostDirections.actionNewPost3ToHomepage()
                 findNavController().navigate(action)
                 Log.d("DOWNLOAD URI", "$downloadUri")
