@@ -21,7 +21,7 @@
     <string name="Event5">MLK expo</string>
     <string name="Event7">Dev Ops expo</string>
     <string name="name">Name</string>
-    <string name="email">email</string>
+    <string name="email">Email</string>
     <string name="todo">TODO</string>
     <string name="event_location">event_location</string>
     <string name="favorite">favorite</string>
@@ -40,5 +40,12 @@
     <string name="event_title">event_title</string>
     <string name="this_is_where_the_short_event_description_would_go_a_string_called_shortdescription">This is where the short event description would go. A string called shortDescription.</string>
     <string name="date_time">date_time</string>
+    <string name="change_profile_photo">Change profile photo</string>
+    <string name="bio">Bio</string>
+    <string name="update_email">Update email</string>
+    <string name="user_profile_picture">User profile picture</string>
+    <string name="username">Username</string>
+    <string name="website">Website</string>
+    <string name="write_a_quick_bio">Write a quick bio!</string>
 
 </resources>
