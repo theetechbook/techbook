@@ -7,13 +7,17 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.latifah.techbook.database.LikedPost
 import com.latifah.techbook.database.TechbookDao
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.network.TechEventApiService
+import com.latifah.techbook.ui.fragments.BaseFragment
 import com.latifah.techbook.ui.fragments.Login
+import com.latifah.techbook.ui.fragments.Profile
 import com.latifah.techbook.ui.fragments.Register
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
 import com.latifah.techbook.util.Constants
 import javax.inject.Inject
 
@@ -25,6 +29,7 @@ class MainRepository @Inject constructor(
 
     private val _userID = MutableLiveData<String>()
     val userID : LiveData<String> = _userID
+    private var firstName: String? = ""
 
     fun registerUser(user: User, registerFragment : Register) {
         // db.collection("Users")  SEPARATION OF CONCERNS: This is a magic string and it's better to put these strings in a file. That way if it needs to be changed we only need to change it in one spot
@@ -62,6 +67,7 @@ class MainRepository @Inject constructor(
             }
     }
 
+    //For the home page
     fun getAllPosts() {
         val posts = mutableListOf<Map<String, Any>>()
         db.collection("post")
@@ -79,6 +85,7 @@ class MainRepository @Inject constructor(
             }
     }
 
+    //For the posts on Profile Page
     fun getPostByUserId() {
         db.collection("post")
             .whereEqualTo("userUid", getCurrentUserUID())
@@ -97,5 +104,77 @@ class MainRepository @Inject constructor(
         return Firebase.auth.currentUser!!.uid
     }
 
+    fun setCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
+        //return Firebase.auth.currentUser!!.email
+        var user: User? = null
+        val docRef = db.collection("users").document(getCurrentUserUID())
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+            user = documentSnapshot.toObject<User>()
+            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
+            firstName = user?.firstName
+            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
+            Log.d("firstName is set", "$firstName")
+        }
 
+    }
+
+    fun getCurrentUserFirstName() : String? {
+        //return Firebase.auth.currentUser!!.email
+        //var user: User? = null
+//        val docRef = db.collection("users").document(getCurrentUserUID())
+//        docRef.get().addOnSuccessListener { documentSnapshot ->
+//            val user = documentSnapshot.toObject<User>()
+//            firstName = user?.firstName
+//            Log.d("userInfo", "$user, and first name is ${user?.firstName}")
+//        }
+//        Log.d("firstName", "${firstName}")
+        Log.d("getting FirstName", "$firstName")
+        return firstName
+    }
+
+     fun getCurrentUserLastName(): String? {
+         var user: User? = null
+         var lastName: String? = ""
+         val docRef = db.collection("users").document(getCurrentUserUID())
+         docRef.get().addOnSuccessListener { documentSnapshot ->
+             user = documentSnapshot.toObject<User>()
+             Log.d("userInfo", "$user, and first name is ${user?.firstName}")
+         }
+         Log.d("lastName", "${lastName}")
+         return lastName
+
+//         var keysArrayList = arrayListOf<String>()
+//         Log.d("getUserLastName", "Calling function")
+//         db.collection("users")
+//             .whereEqualTo("userUid", getCurrentUserUID())
+//             .get()
+//             .addOnSuccessListener { result ->
+//                 Log.d("success", "${result.documents}")
+////                 for (document in result) {
+////                     Log.d("GET ALL POSTS By UID", "data: ${document.data.keys}")
+////                     for (key in document.data.keys) {
+////                     keysArrayList.add(key) }
+////                 }
+//             }
+//             .addOnFailureListener { exception ->
+//                 Log.d("GET ALL POSTS By UID", "Error getting documents: ", exception)
+//             }
+//         return keysArrayList
+     }
+
+    fun getCurrentUserName() : String? {
+        var user: User? = null
+        val docRef = db.collection("users").document(getCurrentUserUID())
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+            user = documentSnapshot.toObject<User>()
+            Log.d("userInfo", "$user, and first name is ${user?.firstName}")
+        }
+        Log.d("userName", "${user?.userName}")
+
+        return user?.userName
+    }
+
+    suspend fun getLikedPosts(): MutableLiveData<ArrayList<LikedPost>> {
+        return techbookDao.getLikedPosts()
+    }
 }
