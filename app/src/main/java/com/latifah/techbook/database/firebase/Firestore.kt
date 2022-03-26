@@ -77,8 +77,11 @@ class Firestore {
             }
     }
 
+
     fun getCurrentUserUID() : String {
         return Firebase.auth.currentUser!!.uid
     }
+
+
 
 }

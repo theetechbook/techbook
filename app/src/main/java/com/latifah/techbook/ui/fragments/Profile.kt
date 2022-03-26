@@ -61,6 +61,11 @@ class Profile : Fragment(), ProfileAdapter.OnItemClickListener {
          binding.username.text = args.userName
          binding.name.text = "${args.firstName}  ${args.lastName}"
 
+        binding.btnEditProfile.setOnClickListener {
+            val action = ProfileDirections.actionProfile2ToEditProfileFragment()
+            findNavController().navigate(action)
+        }
+
     }
 
 
