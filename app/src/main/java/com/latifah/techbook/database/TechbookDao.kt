@@ -8,5 +8,6 @@ import com.latifah.techbook.database.models.User
 interface TechbookDao {
 
     @Insert
-    suspend fun insertUser(user: User)
+    suspend fun insertLikedPost(likedPost: LikedPost)
+
 }

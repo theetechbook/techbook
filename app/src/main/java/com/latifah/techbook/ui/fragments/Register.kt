@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,13 +20,18 @@ import com.latifah.techbook.R
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.databinding.FragmentRegisterBinding
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
+import dagger.hilt.android.AndroidEntryPoint
+
 /**
  * A simple [Fragment] subclass.
  * Use the [Register.newInstance] factory method to
  * create an instance of this fragment.
  */
-
+@AndroidEntryPoint
 class Register : BaseFragment() {
+
+    private val viewModel: TechbookViewModel by viewModels()
 
     override var bottomNavigationViewVisibility = View.GONE
     private var _binding: FragmentRegisterBinding? = null
@@ -90,7 +96,7 @@ class Register : BaseFragment() {
                             val firebaseUser = auth.currentUser!!
                             val registeredEmail = firebaseUser.email!! //I'm using the email that comes from firebase because I know that it's already been authenticated
                             val user = User(firebaseUser.uid, firstName, lastName, registeredEmail, userName)
-                            Firestore().registerUser(user, this)
+                            viewModel.registerUser(user, this)
                         }
                         else {
                             Log.d("register user", "registerUser: ${task.exception!!.message}")
@@ -105,7 +111,7 @@ class Register : BaseFragment() {
 
     fun registerSuccess(user: User) {
         Log.d("registerSuccess", "${user.userName}")
-        val action = RegisterDirections.actionRegisterToProfile2(user.firstName, user.lastName, user.userName)
+        val action = RegisterDirections.actionRegisterToProfile2()
         findNavController().navigate(action)
     }
 

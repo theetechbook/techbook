@@ -33,7 +33,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorWhite"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
@@ -46,7 +46,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="15dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorWhite"
             android:src="@drawable/ic_more_vert_" />
 
     </RelativeLayout>
@@ -57,7 +57,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="440dp"
         android:layout_below="@+id/post_header_layout"
         android:layout_marginTop="3dp"
-        android:background="@color/colorBlack"
+        android:background="@color/colorPrimary"
         android:src="@drawable/happy" />
 
     <RelativeLayout
@@ -65,7 +65,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/post_img"
-        android:background="@color/colorAccent">
+        android:background="@color/colorWhite">
 
         <ImageView
             android:id="@+id/heart"

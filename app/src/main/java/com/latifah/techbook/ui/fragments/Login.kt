@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -18,8 +19,13 @@ import com.latifah.techbook.R
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.databinding.FragmentLoginBinding
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Login : BaseFragment() {
+
+    private val viewModel: TechbookViewModel by viewModels()
 
     override var bottomNavigationViewVisibility = View.GONE
 
@@ -62,7 +68,7 @@ class Login : BaseFragment() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if(task.isSuccessful){
-                            Firestore().loginUser(this)
+                            viewModel.loginUser(this)
                         } else {  Toast.makeText(activity,
                             "Username/Password Incorrect",
                             Toast.LENGTH_LONG)
@@ -74,7 +80,7 @@ class Login : BaseFragment() {
     }
 
     fun loginSuccess(user : User) {
-        val action = LoginDirections.actionLoginToProfile2(user.firstName, user.lastName, user.userName)
+        val action = LoginDirections.actionLoginToProfile2()
         findNavController().navigate(action)
     }
 }
