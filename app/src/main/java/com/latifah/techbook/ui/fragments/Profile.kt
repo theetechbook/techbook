@@ -115,6 +115,10 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
         //Log.d("profileFrag firstName is", "$firstName")
         //binding.name.text = viewModel.getCurrentUserFirstName(viewModel, this)
 
+        binding.btnEditProfile.setOnClickListener {
+            val action = ProfileDirections.actionProfile2ToEditProfileFragment()
+            findNavController().navigate(action)
+        }
     }
 
     fun setUserInfo(user: User) {
