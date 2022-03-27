@@ -12,8 +12,8 @@ interface TechbookDao {
     @Insert
     suspend fun insertLikedPost(likedPost: LikedPost)
 
-    @Query("SELECT * FROM liked_posts")
-    suspend fun getLikedPosts(): MutableLiveData<ArrayList<LikedPost>>
+//    @Query("SELECT * FROM liked_posts")
+//    suspend fun getLikedPosts(): ArrayList<LikedPost>?
 
 
 

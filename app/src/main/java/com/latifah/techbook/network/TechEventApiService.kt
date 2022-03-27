@@ -4,7 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 
 interface TechEventApiService {
-    @GET("/find/groups")
+
+    @GET("/v1/events/")
     suspend fun getEvents() : Flow<TechEvent>
 
 }

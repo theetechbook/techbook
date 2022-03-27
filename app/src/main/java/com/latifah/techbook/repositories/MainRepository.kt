@@ -3,8 +3,12 @@ package com.latifah.techbook.repositories
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.database.LikedPost
@@ -13,10 +17,7 @@ import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
 import com.latifah.techbook.network.TechEventApiService
-import com.latifah.techbook.ui.fragments.BaseFragment
-import com.latifah.techbook.ui.fragments.Login
-import com.latifah.techbook.ui.fragments.Profile
-import com.latifah.techbook.ui.fragments.Register
+import com.latifah.techbook.ui.fragments.*
 import com.latifah.techbook.ui.viewmodels.TechbookViewModel
 import com.latifah.techbook.util.Constants
 import javax.inject.Inject
@@ -29,7 +30,7 @@ class MainRepository @Inject constructor(
 
     private val _userID = MutableLiveData<String>()
     val userID : LiveData<String> = _userID
-    private var firstName: String? = ""
+    var firstName: String? = ""
 
     fun registerUser(user: User, registerFragment : Register) {
         // db.collection("Users")  SEPARATION OF CONCERNS: This is a magic string and it's better to put these strings in a file. That way if it needs to be changed we only need to change it in one spot
@@ -55,6 +56,11 @@ class MainRepository @Inject constructor(
             }
     }
 
+    suspend fun savePost(post: Post) {
+        val likedPost = LikedPost(post.userUid, post.text, post.gif_url, post.username)
+        techbookDao.insertLikedPost(likedPost)
+    }
+
     fun addPost(post: Post) {
         db.collection("post")
             .add(post)
@@ -68,36 +74,73 @@ class MainRepository @Inject constructor(
     }
 
     //For the home page
-    fun getAllPosts() {
-        val posts = mutableListOf<Map<String, Any>>()
-        db.collection("post")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d("GET ALL POSTS", "data: ${document.data}")
-                    posts.add(document.data)
-                }
-                Log.d("GET ALL POSTS List", "data: ${posts}")
+//    fun getAllPosts(viewModel: TechbookViewModel, fragment: Homepage) {
+//        val posts = mutableListOf<String?>()
+//        db.collection("post")
+//            .get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    Log.d("GET ALL POSTS", "data: ${document.data}")
+//                    for (post in document.data.values) {
+//                        posts.add(post as String?)
+//                    }
+//                    viewModel.setPosts(posts, fragment)
+//                }
+//                Log.d("GET ALL POSTS List", "data: ${posts}")
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d("GET ALL POSTS", "Error getting documents: ", exception)
+//            }
+//    }
 
-            }
-            .addOnFailureListener { exception ->
-                Log.d("GET ALL POSTS", "Error getting documents: ", exception)
-            }
+    fun getAllPosts(): CollectionReference {
+        val posts = mutableListOf<String?>()
+        val collectionReference = db.collection("post")
+        return collectionReference
+//            .get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    Log.d("GET ALL POSTS", "data: ${document.data}")
+//                    for (post in document.data.values) {
+//                        posts.add(post as String?)
+//                    }
+//                    viewModel.setPosts(posts, fragment)
+//                }
+//                Log.d("GET ALL POSTS List", "data: ${posts}")
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d("GET ALL POSTS", "Error getting documents: ", exception)
+//            }
     }
 
     //For the posts on Profile Page
-    fun getPostByUserId() {
-        db.collection("post")
+//    fun getPostByUserId() {
+//        db.collection("post")
+//            .whereEqualTo("userUid", getCurrentUserUID())
+//            .get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    Log.d("GET ALL POSTS By UID", "data: ${document.data}")
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d("GET ALL POSTS By UID", "Error getting documents: ", exception)
+//            }
+//    }
+
+    fun getPostByUserId(): Query {
+        val collectionReference = db.collection("post")
             .whereEqualTo("userUid", getCurrentUserUID())
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d("GET ALL POSTS By UID", "data: ${document.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("GET ALL POSTS By UID", "Error getting documents: ", exception)
-            }
+            //.get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    Log.d("GET ALL POSTS By UID", "data: ${document.data}")
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d("GET ALL POSTS By UID", "Error getting documents: ", exception)
+//            }
+        return collectionReference
     }
 
     fun getCurrentUserUID() : String {
@@ -108,13 +151,16 @@ class MainRepository @Inject constructor(
         //return Firebase.auth.currentUser!!.email
         var user: User? = null
         val docRef = db.collection("users").document(getCurrentUserUID())
+        Log.d("MainRepo", "Starting on Success Listener")
         docRef.get().addOnSuccessListener { documentSnapshot ->
             user = documentSnapshot.toObject<User>()
             viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
             firstName = user?.firstName
             Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
-            Log.d("firstName is set", "$firstName")
+            Log.d("firstName is set in onSuccess", "$firstName")
+            return@addOnSuccessListener
         }
+        Log.d("firstName is set in mainRepo", "$firstName")
 
     }
 
@@ -174,7 +220,7 @@ class MainRepository @Inject constructor(
         return user?.userName
     }
 
-    suspend fun getLikedPosts(): MutableLiveData<ArrayList<LikedPost>> {
-        return techbookDao.getLikedPosts()
-    }
+//    suspend fun getLikedPosts(): MutableLiveData<ArrayList<LikedPost>> {
+//        return techbookDao.getLikedPosts()
+//    }
 }

@@ -18,11 +18,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.latifah.techbook.R
+import com.latifah.techbook.adaptersimport.HomeAdapter
 import com.latifah.techbook.adaptersimport.ProfileAdapter
-import com.latifah.techbook.database.models.DataSource
-import com.latifah.techbook.database.models.EventsToday
-import com.latifah.techbook.database.models.ProfileData
-import com.latifah.techbook.database.models.User
+import com.latifah.techbook.database.models.*
 import com.latifah.techbook.databinding.FragmentProfileBinding
 import com.latifah.techbook.ui.viewmodels.TechbookViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,6 +39,7 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
     private val binding get() = _binding!!
     private var dummieData = dummieProfile(44)
     private val args: ProfileArgs by navArgs()
+    private var profilePosts = mutableListOf<Post?>()
 
     // private var lastName = ""
     // private var userName = ""
@@ -66,12 +65,28 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
 //        for (item in keysArrayList) {
 //            Log.d("getUserDisplayKeys", "$item")
 //        }
+        viewModel.getCurrentUserFirstName(viewModel, this)
+        viewModel.getPostByUserId()
+        viewModel.userPosts.observe(viewLifecycleOwner) {
+            if (it != null) {
+                for (post in it) {
+                    profilePosts.add(post)
+                    Log.d(
+                        "Observing user posts from Firebase",
+                        "${post?.gif_url} \n" +
+                                "${post?.text} \n" +
+                                "${post?.userUid} \n" +
+                                "${post?.username}"
+                    )
+                }
+                val adapter = this.context?.let { context -> ProfileAdapter(profilePosts, this, context) }
+                val recyclerView = binding.profilerecyclerView
+                recyclerView.adapter = adapter
+                recyclerView.layoutManager = GridLayoutManager(context, 3)
+                recyclerView.setHasFixedSize(true)
 
-        val adapter = ProfileAdapter(dummieProfile(6),this)
-        val recyclerView = binding.profilerecyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
-        recyclerView.setHasFixedSize(true)
+            }
+        }
 
         return view
 
@@ -91,9 +106,13 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
 //            firstName = it
 //            binding.name.text = firstName
 //        })
-        viewModel.getCurrentUserFirstName(viewModel, this)
-        val firstName = super.userFirstName
-        Log.d("profileFrag firstName is", "$firstName")
+
+//        viewModel.userFirstName.observe(viewLifecycleOwner, {
+//            Log.d("LiveData firstName is", "$it")
+//        }
+//        )
+        // val firstName = super.userFirstName
+        //Log.d("profileFrag firstName is", "$firstName")
         //binding.name.text = viewModel.getCurrentUserFirstName(viewModel, this)
 
     }
