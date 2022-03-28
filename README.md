@@ -228,6 +228,11 @@ Likes
 
   - [Retrofit](https://square.github.io/retrofit/)
 
+   ## 😋 Authors
+ - [Robin B.](https://github.com/hyperiusblake)
+ - [Ana P.](https://github.com/kayabliss)
+ - [Cory G.](https://github.com/mlapresta)
+ - [Latifah P. ](https://github.com/latifahpresident)
 
 
 ## 🖥 Running Locally
