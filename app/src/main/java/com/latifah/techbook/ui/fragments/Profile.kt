@@ -65,7 +65,8 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
 //        for (item in keysArrayList) {
 //            Log.d("getUserDisplayKeys", "$item")
 //        }
-        viewModel.getCurrentUserFirstName(viewModel, this)
+        //viewModel.getCurrentUserFirstName(viewModel, this)
+        viewModel.getUserInfo()
         viewModel.getPostByUserId()
         viewModel.userPosts.observe(viewLifecycleOwner) {
             if (it != null) {
@@ -114,6 +115,13 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
         // val firstName = super.userFirstName
         //Log.d("profileFrag firstName is", "$firstName")
         //binding.name.text = viewModel.getCurrentUserFirstName(viewModel, this)
+        viewModel.userInfo.observe(viewLifecycleOwner) {
+            if (it != null) {
+                binding.name.text = "${it.firstName} ${it.lastName}"
+                binding.username.text = "${it.userName}"
+            }
+
+        }
 
         binding.btnEditProfile.setOnClickListener {
             val action = ProfileDirections.actionProfile2ToEditProfileFragment()

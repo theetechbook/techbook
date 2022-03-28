@@ -29,6 +29,7 @@ class TechbookViewModel @Inject constructor(
     var userFirstName: LiveData<String> = _userFirstName
     val posts: MutableLiveData<List<Post?>?> = MutableLiveData()
     val userPosts: MutableLiveData<List<Post?>?> = MutableLiveData()
+    val userInfo: MutableLiveData<User?> = MutableLiveData()
     private var _likedPosts = MutableLiveData<ArrayList<LikedPost>>()
     var likedPosts : LiveData<ArrayList<LikedPost>> = _likedPosts
 
@@ -95,6 +96,23 @@ class TechbookViewModel @Inject constructor(
 
         }
 
+    fun getUserInfo(): LiveData<User?> {
+
+        mainRepository.getUserInfo().addSnapshotListener(EventListener { value, e ->
+            if (e != null) {
+                Log.w("Listen failed.", e)
+                userInfo.value = null
+                return@EventListener
+            }
+            var user = value!!.toObject(User::class.java)
+            //posts.value = postsList
+            userInfo.value = user
+        })
+
+        return userInfo
+
+    }
+
 
     fun getCurrentUserUID() : String {
 
@@ -102,14 +120,14 @@ class TechbookViewModel @Inject constructor(
 
     }
 
-    fun getCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
-        viewModelScope.launch {
-            mainRepository.setCurrentUserFirstName(viewModel, fragment)
-            Log.d("mainRepo returned firstName", "$_firstName")
-        }
-
-
-    }
+//    fun getCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
+//        viewModelScope.launch {
+//            mainRepository.setCurrentUserFirstName(viewModel, fragment)
+//            Log.d("mainRepo returned firstName", "$_firstName")
+//        }
+//
+//
+//    }
 
     fun setCurrentUserInfo(firstName: String?,lastName: String?, userName: String?, fragment: Profile) {
             Log.d("firstName from mainRepository", "$firstName")

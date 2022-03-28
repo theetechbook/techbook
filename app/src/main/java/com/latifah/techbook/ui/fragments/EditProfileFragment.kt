@@ -9,13 +9,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.latifah.techbook.R
 import com.latifah.techbook.databinding.FragmentEditProfileBinding
+import com.latifah.techbook.ui.viewmodels.TechbookViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class EditProfileFragment : Fragment() {
+
+    private val viewModel: TechbookViewModel by viewModels()
     private var _binding:  FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var imageUri : Uri
@@ -26,11 +31,19 @@ class EditProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
+
+        viewModel.getUserInfo()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.userInfo.observe(viewLifecycleOwner) {
+            if (it != null) {
+                binding.etFullName.setText(it.firstName)
+            }
+        }
 
         binding.tvChangeProfilePhoto.setOnClickListener {
             selectMedia()

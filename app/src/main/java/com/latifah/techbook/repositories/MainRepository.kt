@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.database.LikedPost
@@ -16,6 +13,7 @@ import com.latifah.techbook.database.TechbookDao
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
+import com.latifah.techbook.network.EventsResponse
 import com.latifah.techbook.network.TechEventApiService
 import com.latifah.techbook.ui.fragments.*
 import com.latifah.techbook.ui.viewmodels.TechbookViewModel
@@ -31,6 +29,10 @@ class MainRepository @Inject constructor(
     private val _userID = MutableLiveData<String>()
     val userID : LiveData<String> = _userID
     var firstName: String? = ""
+
+    suspend fun getEvents(): EventsResponse {
+        return techEventApiService.getEvents()
+    }
 
     fun registerUser(user: User, registerFragment : Register) {
         // db.collection("Users")  SEPARATION OF CONCERNS: This is a magic string and it's better to put these strings in a file. That way if it needs to be changed we only need to change it in one spot
@@ -147,21 +149,21 @@ class MainRepository @Inject constructor(
         return Firebase.auth.currentUser!!.uid
     }
 
-    fun setCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
+    fun getUserInfo(): DocumentReference {
         //return Firebase.auth.currentUser!!.email
         var user: User? = null
         val docRef = db.collection("users").document(getCurrentUserUID())
-        Log.d("MainRepo", "Starting on Success Listener")
-        docRef.get().addOnSuccessListener { documentSnapshot ->
-            user = documentSnapshot.toObject<User>()
-            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
-            firstName = user?.firstName
-            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
-            Log.d("firstName is set in onSuccess", "$firstName")
-            return@addOnSuccessListener
-        }
-        Log.d("firstName is set in mainRepo", "$firstName")
-
+//        Log.d("MainRepo", "Starting on Success Listener")
+//        docRef.get().addOnSuccessListener { documentSnapshot ->
+//            user = documentSnapshot.toObject<User>()
+//            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
+//            firstName = user?.firstName
+//            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
+//            Log.d("firstName is set in onSuccess", "$firstName")
+//            return@addOnSuccessListener
+//        }
+//        Log.d("firstName is set in mainRepo", "$firstName")
+        return docRef
     }
 
     fun getCurrentUserFirstName() : String? {
