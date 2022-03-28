@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/layout/fragment_event_search.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/layout/home_item.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/layout/post.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/layout/profile_item.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/coryg/AndroidStudioProjects/techbook/app/src/main/res/menu/bottom_navigation.xml" value="0.1" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/drawable/loginborder.xml" value="0.1005" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/event.xml" value="0.15081521739130435" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/events_list_fragment.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_dashboard.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_edit_profile_text.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_events.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_likes.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_new_post.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_post.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_register.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_splash.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/fragment_timeline.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/home_item.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/item.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/post.xml" value="0.25" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/layout/post_item_layout.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/menu/bottom_navigation.xml" value="0.1712820512820513" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/menu/top_app_bar.xml" value="0.1" />
+        <entry key="..\:/Users/robin/OneDrive/Desktop/techbook/techbook/app/src/main/res/menu/top_navigation.xml" value="0.1712820512820513" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
   </component>
 </project>

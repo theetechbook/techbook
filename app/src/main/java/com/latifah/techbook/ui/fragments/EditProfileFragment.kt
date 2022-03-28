@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.latifah.techbook.R
 import com.latifah.techbook.databinding.FragmentEditProfileBinding
@@ -33,6 +34,12 @@ class EditProfileFragment : Fragment() {
 
         binding.tvChangeProfilePhoto.setOnClickListener {
             selectMedia()
+        }
+
+        binding.saveButton.setOnClickListener {
+            Log.d("save button pressed", "need function to update user Info in Firebase")
+            val action = EditProfileFragmentDirections.actionEditProfileFragmentToProfile2()
+            findNavController().navigate(action)
         }
     }
 

@@ -68,6 +68,7 @@ class Login : BaseFragment() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if(task.isSuccessful){
+                            //viewModel.getCurrentUserFirstName(viewModel, this)
                             viewModel.loginUser(this)
                         } else {  Toast.makeText(activity,
                             "Username/Password Incorrect",
