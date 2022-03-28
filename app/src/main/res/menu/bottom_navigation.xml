@@ -4,9 +4,9 @@
         android:title="Profile"
         android:icon="@drawable/outline_account_circle_black_24dp"
         />
-    <item android:id="@+id/menu_eventsList"
-        android:title="@string/near_me"
-        android:icon="@drawable/outline_location_on_black_24dp"
+    <item android:id="@+id/menu_eventSearch"
+        android:title="Event Search"
+        android:icon="@drawable/ic_search_24"
         />
     <item android:id="@+id/menu_new"
         android:title="@string/new_post"
