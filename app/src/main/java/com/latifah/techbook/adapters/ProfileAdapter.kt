@@ -1,22 +1,27 @@
 package com.latifah.techbook.adaptersimport
 
 import android.content.ClipData
+import android.content.Context
 import android.view.LayoutInflater
+import com.latifah.techbook.R
 import com.latifah.techbook.database.models.EventsToday
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.latifah.techbook.R
+import com.bumptech.glide.Glide
 import com.latifah.techbook.adapters.TechEventAdapter
+import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.ProfileData
 import kotlinx.android.extensions.LayoutContainer
 
 class ProfileAdapter(
-    private val exampleProfileList: List<ProfileData>,
-    private val listener:OnItemClickListener
+    private val exampleProfileList: List<Post?>,
+    private val listener: OnItemClickListener,
+    private val context: Context
 ) : RecyclerView.Adapter<ProfileAdapter.Viewholder>() {
 
    /* var data: List<ProfileData> = emptyList()
@@ -37,15 +42,14 @@ class ProfileAdapter(
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
-       val currentItem = exampleProfileList[position]
-     //   holder.imageView.setImageResource(currentItem.imageResour)
-        holder.textView.text = currentItem.text1
+        val currentItem = exampleProfileList[position]
+        Glide.with(context).load(currentItem?.gif_url).into(holder.imageView)        //holder.textView.text = currentItem.text1
     }
 
     inner class Viewholder(itemView: View) :
         RecyclerView.ViewHolder(itemView),
        View.OnClickListener{
-      //  var imageView : ImageView = itemView.findViewById(R.id.profV)
+        var imageView : ImageView = itemView.findViewById(R.id.profV)
         var textView: TextView = itemView.findViewById(R.id.titleTxtV)
 
         init {

@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "liked_posts")
 data class LikedPost(
-    val userId : String,
-    val firstName : String,
-    val lastName : String,
-    val userName : String
+    val userUid : String = "",
+    val text : String = "",
+    val gif_url : String = "",
+    val username : String = "",
     ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

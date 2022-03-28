@@ -135,9 +135,6 @@
         android:label="@string/new_post"
         tools:layout="@layout/fragment_new_post" >
         <action
-            android:id="@+id/action_newPost3_to_dashboard3"
-            app:destination="@id/dashboard3" />
-        <action
             android:id="@+id/action_newPost3_to_homepage"
             app:destination="@id/homepage" />
     </fragment>
@@ -147,14 +144,21 @@
         android:label="@string/likes"
         tools:layout="@layout/fragment_likes" />
     <fragment
-        android:id="@+id/dashboard3"
-        android:name="com.latifah.techbook.ui.fragments.Dashboard"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-    <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.latifah.techbook.ui.fragments.EditProfileFragment"
         android:label="Edit profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profile2"
+            app:destination="@id/profile2" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventSearch"
+        android:name="com.latifah.techbook.ui.fragments.EventSearch"
+        android:label="EventSearch" >
+        <action
+            android:id="@+id/action_eventSearch_to_eventsList"
+            app:destination="@id/eventsList" />
+    </fragment>
 
 </navigation>
