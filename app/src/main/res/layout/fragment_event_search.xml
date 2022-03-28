@@ -15,7 +15,7 @@
         android:layout_marginTop="64dp"
         android:background="@color/colorAccent"
         android:fontFamily="monospace"
-        android:text="Search for Events"
+        android:text="Search"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
