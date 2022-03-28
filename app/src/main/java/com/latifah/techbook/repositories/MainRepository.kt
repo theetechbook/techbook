@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.latifah.techbook.database.LikedPost
@@ -62,7 +59,7 @@ class MainRepository @Inject constructor(
     }
 
     fun addPost(post: Post) {
-        db.collection("post")
+        db.collection(Constants.POST)
             .add(post)
             .addOnSuccessListener { documentReference ->
                 Log.d("add post", documentReference.id)
@@ -81,7 +78,7 @@ class MainRepository @Inject constructor(
 //            .addOnSuccessListener { result ->
 //                for (document in result) {
 //                    Log.d("GET ALL POSTS", "data: ${document.data}")
-//                    for (post in document.data.values) {
+//                    for (post in document.data.values) {      1
 //                        posts.add(post as String?)
 //                    }
 //                    viewModel.setPosts(posts, fragment)
@@ -95,23 +92,34 @@ class MainRepository @Inject constructor(
 
     fun getAllPosts(): CollectionReference {
         val posts = mutableListOf<String?>()
-        val collectionReference = db.collection("post")
+        val collectionReference = db.collection(Constants.POST)
         return collectionReference
-//            .get()
-//            .addOnSuccessListener { result ->
-//                for (document in result) {
-//                    Log.d("GET ALL POSTS", "data: ${document.data}")
-//                    for (post in document.data.values) {
-//                        posts.add(post as String?)
-//                    }
-//                    viewModel.setPosts(posts, fragment)
-//                }
-//                Log.d("GET ALL POSTS List", "data: ${posts}")
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.d("GET ALL POSTS", "Error getting documents: ", exception)
-//            }
     }
+
+
+
+    fun getUserInfo() : DocumentReference {
+        //return Firebase.auth.currentUser!!.email
+        var user: User? = null
+        val docRef = db.collection("users").document(getCurrentUserUID())
+
+        return docRef
+//        Log.d("MainRepo", "Starting on Success Listener")
+//        docRef.get().addOnSuccessListener { documentSnapshot ->
+//            user = documentSnapshot.toObject<User>()
+//            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
+//            firstName = user?.firstName
+//            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
+//            Log.d("firstName is set in onSuccess", "$firstName")
+//            return@addOnSuccessListener
+//        }
+//        Log.d("firstName is set in mainRepo", "$firstName")
+
+    }
+
+
+
+
 
     //For the posts on Profile Page
 //    fun getPostByUserId() {
@@ -129,7 +137,7 @@ class MainRepository @Inject constructor(
 //    }
 
     fun getPostByUserId(): Query {
-        val collectionReference = db.collection("post")
+        val collectionReference = db.collection(Constants.POST)
             .whereEqualTo("userUid", getCurrentUserUID())
             //.get()
 //            .addOnSuccessListener { result ->
@@ -147,22 +155,7 @@ class MainRepository @Inject constructor(
         return Firebase.auth.currentUser!!.uid
     }
 
-    fun setCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
-        //return Firebase.auth.currentUser!!.email
-        var user: User? = null
-        val docRef = db.collection("users").document(getCurrentUserUID())
-        Log.d("MainRepo", "Starting on Success Listener")
-        docRef.get().addOnSuccessListener { documentSnapshot ->
-            user = documentSnapshot.toObject<User>()
-            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
-            firstName = user?.firstName
-            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
-            Log.d("firstName is set in onSuccess", "$firstName")
-            return@addOnSuccessListener
-        }
-        Log.d("firstName is set in mainRepo", "$firstName")
 
-    }
 
     fun getCurrentUserFirstName() : String? {
         //return Firebase.auth.currentUser!!.email
@@ -220,7 +213,27 @@ class MainRepository @Inject constructor(
         return user?.userName
     }
 
-//    suspend fun getLikedPosts(): MutableLiveData<ArrayList<LikedPost>> {
-//        return techbookDao.getLikedPosts()
-//    }
+    //Update user info
+    fun updateUserInfo(firstName : String, lastName : String, username : String, website : String, bio : String, email : String) {
+        val userRef = db.collection(Constants.USERS).document(getCurrentUserUID())
+        // Set the "firstName, lastName etc"  field of the user 'current uid'
+        userRef
+            .update(
+             "firstName", firstName,
+             "lastName", lastName,
+             "username", username,
+             "website", website,
+             "bio", bio,
+             "email", email
+             )
+            .addOnSuccessListener {
+                Log.d("edit user info success", "DocumentSnapshot successfully updated!")
+            }
+            .addOnFailureListener { e ->
+                Log.w("edit user info fail", "Error updating document", e)
+            }
+
+    }
+
+
 }

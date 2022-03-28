@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.EventListener
-import com.google.firebase.firestore.QuerySnapshot
 import com.latifah.techbook.database.LikedPost
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
@@ -29,6 +28,8 @@ class TechbookViewModel @Inject constructor(
     var userFirstName: LiveData<String> = _userFirstName
     val posts: MutableLiveData<List<Post?>?> = MutableLiveData()
     val userPosts: MutableLiveData<List<Post?>?> = MutableLiveData()
+    val userInfo: MutableLiveData<User?> = MutableLiveData()
+
     private var _likedPosts = MutableLiveData<ArrayList<LikedPost>>()
     var likedPosts : LiveData<ArrayList<LikedPost>> = _likedPosts
 
@@ -102,25 +103,25 @@ class TechbookViewModel @Inject constructor(
 
     }
 
-    fun getCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
-        viewModelScope.launch {
-            mainRepository.setCurrentUserFirstName(viewModel, fragment)
-            Log.d("mainRepo returned firstName", "$_firstName")
-        }
+//    fun getCurrentUserFirstName(viewModel: TechbookViewModel, fragment: Profile) {
+//        viewModelScope.launch {
+//            mainRepository.getUserInfo(viewModel, fragment)
+//            Log.d("mainRepo returned firstName", "$_firstName")
+//        }
+//
+//
+//    }
 
-
-    }
-
-    fun setCurrentUserInfo(firstName: String?,lastName: String?, userName: String?, fragment: Profile) {
-            Log.d("firstName from mainRepository", "$firstName")
-            _firstName = firstName
-            fragment.setCurrentUserFirstName(firstName, lastName, userName)
-            Log.d("_firstName in viewModel is now", "$_firstName")
-
-        //Log.i("user firstName is",  "${mainRepository.getCurrentUserFirstName()}")
-
-
-    }
+//    fun setCurrentUserInfo(firstName: String?,lastName: String?, userName: String?, fragment: Profile) {
+//            Log.d("firstName from mainRepository", "$firstName")
+//            _firstName = firstName
+//            fragment.setCurrentUserFirstName(firstName, lastName, userName)
+//            Log.d("_firstName in viewModel is now", "$_firstName")
+//
+//        //Log.i("user firstName is",  "${mainRepository.getCurrentUserFirstName()}")
+//
+//
+//    }
 
     fun getCurrentUserLastName(): String? {
 
@@ -150,4 +151,21 @@ class TechbookViewModel @Inject constructor(
                 mainRepository.savePost(post)
         }
       }
+
+    fun getUserInfo(): LiveData<User?> {
+        mainRepository.getUserInfo().addSnapshotListener(EventListener { value, e ->
+            if (e != null) {
+                Log.w("Listen failed.", e)
+                userInfo.value = null
+                return@EventListener
+            }
+           var user = value!!.toObject(User::class.java)
+            userInfo.value = user
+        })
+        return userInfo
+    }
+
+    fun updateUserInfo(firstName: String, lastName: String, userName: String, website : String, bio : String, email : String) {
+        mainRepository.updateUserInfo(firstName, lastName, userName, website, bio , email)
+    }
 }
