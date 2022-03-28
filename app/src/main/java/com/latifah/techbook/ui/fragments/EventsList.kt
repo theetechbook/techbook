@@ -10,12 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.viewModels
+import androidx.navigation.NavArgs
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,12 +27,19 @@ import com.latifah.techbook.R
 import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.EventsToday
 import com.latifah.techbook.databinding.EventsListFragmentBinding
+import com.latifah.techbook.network.Event
+import com.latifah.techbook.ui.viewmodels.EventsListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
     private var _binding: EventsListFragmentBinding? = null
     private val binding get() = _binding
   private lateinit var navController: NavController
     private var dummieData = dummieEvent(0)
+    private val viewModel: EventsListViewModel by viewModels()
+    private val args: EventsListArgs by navArgs()
+    private val events : MutableList<Event> = mutableListOf()
 
    // var bottomNavigationViewVisibility = View.VISIBLE
 
@@ -51,13 +61,21 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
         //return inflater.inflate(R.layout.events_list_fragment,container,false)
         _binding = EventsListFragmentBinding.inflate(inflater, container, false)
         val view = binding?.root
+        Log.d(" onCreateView", "preparing to observe")
+//        viewModel.locationLiveData.observe(viewLifecycleOwner) {
+//            viewModel.setLocation(it).value?.let { it1 -> viewModel.getEvents(it1) }
+//        }
+//
+
+        val location = args.location
+        if (location != null) {
+            viewModel.getEvents(location)
+        }
+        Log.d("eventLocation", "$location")
 
         //val myDataset = DataSource().loadEvents()
         dummieData = dummieEvent(50)
-        val adapter = TechEventAdapter(dummieData, this)
-        binding?.rcyview?.adapter = adapter
-        binding?.rcyview?.layoutManager = LinearLayoutManager(requireContext())
-        binding?.rcyview?.setHasFixedSize(true)
+
 /*
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
@@ -70,12 +88,26 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
         return view
     }
 
-   /* override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        navController = Navigation.findNavController()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //viewModel.checkEventsList()
+        viewModel.eventsList.observe(viewLifecycleOwner) {
+
+            Log.d(" observing eventsList", "${it?.size}")
+            if (it != null && it.isNotEmpty()) {
+                for (event in it) {
+                    Log.d("events from PredictHQ", "${event?.title}")
+                    event?.let { eventItem -> events.add(eventItem) }
+                }
+            }
+            val adapter = TechEventAdapter(events, this)
+            binding?.rcyview?.adapter = adapter
+            binding?.rcyview?.layoutManager = LinearLayoutManager(requireContext())
+            binding?.rcyview?.setHasFixedSize(true)
+        }
     }
 
-    */
+
 /*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
          navController = findNavController( )
@@ -93,6 +125,7 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
         super.onDestroy()
         _binding = null
     }
+
 
     private fun dummieEvent(size: Int): ArrayList<EventsToday> {
         val list = ArrayList<EventsToday>()
@@ -120,16 +153,16 @@ class EventsList : Fragment(), TechEventAdapter.OnItemClickListener {
     override fun onItemClick(position: Int) {
 
         Toast.makeText(context, "Item $position clicked", Toast.LENGTH_SHORT).show()
-        val clickItem = dummieData[position]
+        val clickItem = events[position]
         Log.i("ana", "clicked on $clickItem")
         //notifyItemChanged(position)
         val action = EventsListDirections.actionEventsListToEvent(
-            clickItem.name,
-            clickItem.location,
-            clickItem.time.toString(),
+            clickItem.title,
+            clickItem.start,
+            clickItem.end,
             clickItem.description,
-            clickItem.image,
-            clickItem.date.toString()
+            clickItem.scope,
+            clickItem.timezone
         )
         findNavController()?.navigate(action)
         // clickItem.

@@ -14,9 +14,9 @@ interface TechEventApiService {
     )
     @GET("/v1/events/")
     suspend fun getEvents(
+        @Query("q") location: String = "",
         @Query("category") category: String = "conferences,expos",
-        @Query("label") label: String = "technology",
-        @Query("place.scope") placeID: String = "5128638"
+        @Query("label") label: String = "technology"
     ) : EventsResponse
 
     @Headers(
@@ -26,6 +26,6 @@ interface TechEventApiService {
     @GET("/v1/places/")
     suspend fun getPlace(
         @Query("q") place: String = "New York",
-        @Query("limit") limit: Int = 10
+        @Query("limit") limit: Int = 1
     ) : PlaceResponse
 }

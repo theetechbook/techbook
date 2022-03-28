@@ -29,6 +29,7 @@ class EventSearch : BaseFragment() {
     override var bottomNavigationViewVisibility = View.VISIBLE
     private var _binding: FragmentEventSearchBinding? = null
     private val binding get() = _binding!!
+    private var userEntry: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,18 +37,29 @@ class EventSearch : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentEventSearchBinding.inflate(inflater, container, false)
-        viewModel.getEvents()
+        //viewModel.getEvents()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.eventsList.observe(viewLifecycleOwner) {
-            if (it != null) {
-                Log.d("events from PredictHQ", "${it[0]?.title}")
+        binding.eventSearchButton.setOnClickListener {
+            userEntry = binding.editTextLocation.text.toString()
+            Log.d("searching for events in", userEntry)
+            //viewModel.getEvents(userEntry)
+            val action = EventSearchDirections.actionEventSearchToEventsList().setLocation(userEntry)
+            findNavController().navigate(action)
+        }
+
+        viewModel._eventsList.observe(viewLifecycleOwner) {
+            if (it != null && it.size != 0) {
+                Log.d("found events in $userEntry", "${it[0]?.title}")
+                viewModel.setLocation(userEntry)
+
             }
 
         }
+
     }
 }
