@@ -32,7 +32,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de91b7d5-2a13-47ef-a83e-6fc37aed9ea2" name="Default Changelist" comment="added eventSearch Fragment">
+    <list default="true" id="de91b7d5-2a13-47ef-a83e-6fc37aed9ea2" name="Default Changelist" comment="Logging API responses when eventSearch fragment selected">
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -45,14 +45,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/adapters/HomeAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/adapters/HomeAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/network/TechEventApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/network/TechEventApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/repositories/MainRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/repositories/MainRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/EditProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/EditProfileFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/EventSearch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/EventSearch.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/Profile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/Profile.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/viewmodels/EventsListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/viewmodels/EventsListViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/viewmodels/TechbookViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/viewmodels/TechbookViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/Homepage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/latifah/techbook/ui/fragments/Homepage.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648432491538</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Logging API responses when eventSearch fragment selected">
+      <created>1648459060811</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648459060811</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,6 +224,7 @@
     <MESSAGE value="integrated Glide with Profile and Homepage adapters to display posts from Firebase" />
     <MESSAGE value="added navigation from EditProfile back to Profile" />
     <MESSAGE value="added eventSearch Fragment" />
-    <option name="LAST_COMMIT_MESSAGE" value="added eventSearch Fragment" />
+    <MESSAGE value="Logging API responses when eventSearch fragment selected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logging API responses when eventSearch fragment selected" />
   </component>
 </project>
