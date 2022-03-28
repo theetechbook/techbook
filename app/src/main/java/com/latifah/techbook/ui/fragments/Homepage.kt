@@ -57,7 +57,7 @@ class Homepage : BaseFragment(), HomeAdapter.OnItemClickListener {
                     )
                 }
 
-                Log.d("setting up Home Adapter", "${homePosts[0]?.gif_url}")
+                //Log.d("setting up Home Adapter", "${homePosts[0]?.gif_url}")
                 val adapter = this.context?.let { context -> HomeAdapter(homePosts, this, context) }
                 binding.homeRcyV.adapter = adapter
                 binding.homeRcyV.layoutManager = LinearLayoutManager(requireContext())

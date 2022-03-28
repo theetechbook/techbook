@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.database.models.ContactItem
 import com.latifah.techbook.database.models.EventsToday
+import com.latifah.techbook.network.Event
 
 class TechEventAdapter(
-    private val exampleList: List<EventsToday>,
+    private val exampleList: MutableList<Event>,
     private val listener: OnItemClickListener
 ) :
     RecyclerView.Adapter<TechEventAdapter.TechViewHolder>() {
@@ -53,8 +54,8 @@ class TechEventAdapter(
 
     override fun onBindViewHolder(holder: TechViewHolder, position: Int) {
         val currentItem = exampleList[position]
-        holder.textView1.text = currentItem.name
-        holder.textView2.text = currentItem.location
+        holder.textView1.text = currentItem.title
+        holder.textView2.text = currentItem.timezone
 
         //if (position == 0){
          //   holder.textView1.setBackgroundColor(Color.CYAN)

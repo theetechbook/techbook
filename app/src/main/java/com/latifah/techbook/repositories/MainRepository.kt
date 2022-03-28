@@ -13,6 +13,8 @@ import com.latifah.techbook.database.TechbookDao
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
+import com.latifah.techbook.network.EventsResponse
+import com.latifah.techbook.network.PlaceResponse
 import com.latifah.techbook.network.TechEventApiService
 import com.latifah.techbook.ui.fragments.*
 import com.latifah.techbook.ui.viewmodels.TechbookViewModel
@@ -28,6 +30,15 @@ class MainRepository @Inject constructor(
     private val _userID = MutableLiveData<String>()
     val userID : LiveData<String> = _userID
     var firstName: String? = ""
+
+    suspend fun getEvents(location: String): EventsResponse {
+        return techEventApiService.getEvents(location)
+    }
+
+    suspend fun getPlace(place: String): PlaceResponse {
+        return techEventApiService.getPlace(place)
+    }
+
 
     fun registerUser(user: User, registerFragment : Register) {
         // db.collection("Users")  SEPARATION OF CONCERNS: This is a magic string and it's better to put these strings in a file. That way if it needs to be changed we only need to change it in one spot

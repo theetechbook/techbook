@@ -12,8 +12,8 @@ data class User(
     val email : String = "",
     val userName : String = "",
     val website : String = "",
-    val bio : String = ""
-//    val image: String = ""
+    val bio : String = "",
+    val image: String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,

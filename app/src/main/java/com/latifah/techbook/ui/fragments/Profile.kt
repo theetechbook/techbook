@@ -96,7 +96,7 @@ class Profile : BaseFragment(), ProfileAdapter.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         viewModel.userInfo.observe(viewLifecycleOwner) {
             if (it != null) {
-                binding.name.text = "${it.firstName} ${it.lastName}"
+                binding.name.text = "${it.firstName}"
                 binding.username.text = "${it.userName}"
                 binding.profiletext.setText(it.bio)
 

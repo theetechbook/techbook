@@ -7,13 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.EventSearch">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/posts_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <Button
+        android:id="@+id/event_search_button"
+        android:layout_width="124dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="64dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="monospace"
+        android:text="Search"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="265dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="224dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="Please enter a city/state"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorBigText"
+        android:textSize="16sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layout_constraintBottom_toTopOf="@id/event_search_button"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

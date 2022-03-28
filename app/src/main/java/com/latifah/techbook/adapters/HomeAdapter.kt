@@ -51,7 +51,6 @@ class HomeAdapter(private val exampleList: MutableList<Post?>, private val liste
         RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
        /* val imageView: ImageView = itemView.findViewById(R.id.logo)
-        val imageView3: ImageView = itemView.findViewById(R.id.heart)
         val imageView4: ImageView = itemView.findViewById(R.id.send)
         val imageView5: ImageView = itemView.findViewById(R.id.reply)
         val imageView6: ImageView = itemView.findViewById(R.id.bookmark)
@@ -60,6 +59,8 @@ class HomeAdapter(private val exampleList: MutableList<Post?>, private val liste
         val textView2: TextView = itemView.findViewById(R.id.likes_txt)
         val textView3: TextView = itemView.findViewById(R.id.description_txt)
         val post_image: ImageView = itemView.findViewById(R.id.post_img)
+        val heart_save: ImageView = itemView.findViewById(R.id.heart)
+
 
         //val editText: EditText = itemView.findViewById(R.id.likes_txt)
 
