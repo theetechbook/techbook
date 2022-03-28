@@ -8,10 +8,10 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/eventsList"
+        android:id="@+id/eventSearch"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_add_location_24"
-        android:title="Near Me" />
+        android:icon="@drawable/ic_search_24"
+        android:title="Event Search" />
 
     <item
         android:id="@id/newPost3"

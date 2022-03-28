@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         //val builder = AppBarConfiguration.Builder(navController.graph)
         //val appBarConfiguration = builder.build()
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homepage, R.id.eventsList,R.id.newPost3,R.id.profile2, R.id.likes2))
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homepage, R.id.eventSearch,R.id.newPost3,R.id.profile2, R.id.likes2))
 
         toolbar.setupWithNavController(navController, appBarConfiguration)
 

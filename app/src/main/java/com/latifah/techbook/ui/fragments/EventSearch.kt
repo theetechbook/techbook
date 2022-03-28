@@ -12,7 +12,7 @@ import com.latifah.techbook.R
  * Use the [Dashboard.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Dashboard : BaseFragment() {
+class EventSearch : BaseFragment() {
 
     override var bottomNavigationViewVisibility = View.VISIBLE
 
@@ -28,6 +28,6 @@ class Dashboard : BaseFragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_event_search, container, false)
     }
 }
