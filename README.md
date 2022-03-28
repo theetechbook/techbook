@@ -6,7 +6,7 @@
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
-5. [Built With](#-TechBooks-is-buildt with)
+5. [Built With](#-TechBook-is-built with)
 6. [Authors](#-Authors)
 7. [Running Locally](#-Running-Locally)
 8. [Phone Emulator](#-Phone-Emulator)
@@ -16,7 +16,7 @@
 [<img src=".gif" width = "600">]()
 
 
-TechBook is a free social networking platform that enables its users( tech professionals) to upload and share their GIFs and photos with other users.  Techbook users can choose to share information either publicly or privately. Anything shared publicly can be seen by any other user, whereas privately shared content can only be accessed by the specified set of people.
+TechBook is a free social networking platform that enables its users (tech professionals) to upload and share their GIFs and photos with other users.  Techbook users can choose to share information either publicly or privately. Anything shared publicly can be seen by any other user, whereas privately shared content can only be accessed by the specified set of people.
 
 We designed a simpler version where a user can share photos and follow other users. The ‘News Feed’ for each user will consist of top photos or gifs of all the people the user follows.
  
@@ -229,10 +229,10 @@ Likes
   - [Retrofit](https://square.github.io/retrofit/)
 
 ## 😋 Authors
--- [Robin B.](https://github.com/hyperiusblake)
-  - [Ana P.](https://github.com/kayabliss)
-  - [Cory G.](https://github.com/mlapresta)
-   - [Latifah P. ](https://github.com/latifahpresident)
+- [Robin B.](https://github.com/hyperiusblake)
+- [Ana P.](https://github.com/kayabliss)
+- [Cory G.](https://github.com/mlapresta)
+- [Latifah P. ](https://github.com/latifahpresident)
 
 ## 🖥 Running Locally
   - Clone the repository: 
