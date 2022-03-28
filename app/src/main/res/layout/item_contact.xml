@@ -17,14 +17,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:orientation="vertical">
+        android:background="@color/colorBlack"
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/imagV"
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_marginEnd="8dp"
+            android:background="@color/colorAccent"
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_person_icon" />
 
@@ -32,22 +34,22 @@
             android:id="@+id/con_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name"
             android:layout_toEndOf="@id/imagV"
-            android:textColor="@android:color/black"
+            android:text="@string/name"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/con_subtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email"
-            android:layout_toEndOf="@id/imagV"
             android:layout_below="@+id/con_txt"
-            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/imagV"
+            android:text="@string/email"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
