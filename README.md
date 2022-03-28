@@ -1,8 +1,6 @@
 #The House of Technologist - TechBook - README
 ===
 
-# TechBook Mobile Application 
-
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
