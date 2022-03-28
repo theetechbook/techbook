@@ -154,7 +154,6 @@ Likes
 
 **Search Screen - Stream Screen**
 * -> Advanced Search Screen
-* -> Recipe Screen
 
 **Creation Screen**
 * -> Profile Screen (for now because the personal feed is a required story)
