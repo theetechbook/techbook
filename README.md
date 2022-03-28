@@ -38,6 +38,12 @@ reserve events to guarantee a seat.
 
 
 - **Scope** Our application will allow users to post on the live feed.  This will allow users to upload photos or gifs of their projects and content.  We believe that the best version of the app will provide a rich user experience to engage and interact with other users. 
+- The architecture is built around
+- **# Architecture** Our application follow the best pratices for Android Architecture Components and separation of concerns[Android Architecture Components]. Logic is kept away from Activities and Fragments for modularity and moved to the ViewModel/ main repository. Fragments observe the livedata from the viewmodel. The Repository layer handles data operations. 
+
+Databases we are currently using consist of Room and Cloud Firestore.  User data is stored in cloud firestore.  Navigation is used to navigation between fragments and bottom navigation.
+
+
 
 ## Product Spec 
 
