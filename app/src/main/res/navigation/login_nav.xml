@@ -63,6 +63,9 @@
             android:name="userName"
             app:argType="string"
             android:defaultValue='" "' />
+        <action
+            android:id="@+id/action_profile2_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventsList"
@@ -148,5 +151,10 @@
         android:name="com.latifah.techbook.ui.fragments.Dashboard"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.latifah.techbook.ui.fragments.EditProfileFragment"
+        android:label="Edit profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
 </navigation>

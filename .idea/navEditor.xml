@@ -53,6 +53,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="editProfileFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1469" />
+                            <option name="y" value="710" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="event">
                     <value>
                       <LayoutPositions>
@@ -148,6 +160,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_newPost3_to_dashboard3">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_newPost3_to_homepage">
                               <value>
                                 <LayoutPositions />
                               </value>
