@@ -47,5 +47,7 @@
     <string name="username">Username</string>
     <string name="website">Website</string>
     <string name="write_a_quick_bio">Write a quick bio!</string>
+    <string name="user_favTitle">otherUser</string>
+    <string name="otherUser_description">otherUserDescription</string>
 
 </resources>
