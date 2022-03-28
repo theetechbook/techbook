@@ -13,14 +13,17 @@ import com.latifah.techbook.R
 import com.latifah.techbook.adapters.ContactAdapter
 import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.ContactItem
+import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.databinding.ContactItemLayoutBinding
+import java.util.ArrayList
 import kotlin.random.Random
 
 
-class ContactFragment : Fragment(), TechEventAdapter.OnItemClickListener {
+class ContactFragment : Fragment(), ContactAdapter.OnItemClickListener {
     private var _binding: ContactItemLayoutBinding? = null
     private val binding get() = _binding!!
     private var dummyData = dummieData(30)
+    private var homePosts = mutableListOf<ContactItem>()
     //private val adapter = ContactAdapter(this.dummyData)
    var bottomNavigationViewVisibility = View.VISIBLE
 
@@ -34,7 +37,7 @@ class ContactFragment : Fragment(), TechEventAdapter.OnItemClickListener {
 
         dummyData = dummieData(50)
 
-        val adapter = ContactAdapter(dummieData(20), this)
+        val adapter = ContactAdapter{contactItem -> (contactItem) }//(this)
         binding.contactRcyV.adapter = adapter
         binding.contactRcyV.layoutManager = LinearLayoutManager(requireContext())
         binding.contactRcyV.setHasFixedSize(true)
@@ -58,7 +61,7 @@ class ContactFragment : Fragment(), TechEventAdapter.OnItemClickListener {
 
     }
 
-    private fun dummieData(size: Int): ArrayList<ContactItem> {
+    private fun dummieData(size: Int): MutableList<ContactItem> {
         val list = ArrayList<ContactItem>()
         for (i in 0 until size) {
             val drawable = when (i % 3) {
@@ -83,23 +86,26 @@ class ContactFragment : Fragment(), TechEventAdapter.OnItemClickListener {
 
     }
 
-    /*   fun insertItem(view: View){
-           val index = Random.nextInt(8)
-           val newItem = ContactItem(
-               R.drawable.ic_contact_person,
-               "Person Last Name at Position $index",
-               "Email"
-           )
+
+
+    fun insertItem(view: View){
+           val index = Random.nextInt()
+           val newItem = ContactItem(100,R.drawable.techiehumor,"Test","email")
            dummyData.add(index,newItem)
-           adapter.notifyItemInserted(index)
+
        }
 
        fun removeItem(view: View){
-           val index: Int = Random.nextInt(8)
+           val index: Int = Random.nextInt()
            dummyData.removeAt(index)
-           adapter.notifyItemRemoved(index)
 
        }
 
-     */
+
+
+    // override fun invoke(p1: ContactItem) {
+    //    TODO("Not yet implemented")
+  //  }
 }
+
+

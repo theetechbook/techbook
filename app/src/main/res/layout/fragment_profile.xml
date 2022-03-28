@@ -6,21 +6,45 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
-    tools:context=".ui.fragments.Profile">
+    android:background="@color/colorWhite"
+    android:paddingTop="40dp"
+    tools:context=".ui.fragments.Profile"
+    tools:ignore="MissingClass">
 
-    <ImageView
-        android:id="@+id/avatar"
-        android:layout_width="121dp"
-        android:layout_height="112dp"
-        android:layout_marginBottom="80dp"
-        android:background="@color/colorBlack"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/profiletext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/avatar"-->
+    <!--        android:layout_width="121dp"-->
+    <!--        android:layout_height="112dp"-->
+    <!--        android:layout_marginBottom="80dp"-->
+    <!--        android:background="@color/colorBlack"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/profiletext"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.055"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:src="@tools:sample/avatars" />-->
 
     <TextView
         android:id="@+id/location"
@@ -31,30 +55,31 @@
         android:fontFamily="casual"
         android:text="LOCATION"
         android:textAlignment="center"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintHorizontal_bias="0.862"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.015" />
 
     <EditText
         android:id="@+id/profiletext"
         android:layout_width="407dp"
         android:layout_height="95dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="72dp"
+        android:autofillHints="Enter a quick bio!"
         android:background="@android:color/transparent"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="This is where my profile description would be...IF I HAD ONE! Soon..."
+        android:hint="Enter a quick bio!"
         android:inputType="textMultiLine"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/browser_actions_title_color"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/profilerecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,39 +108,6 @@
         app:navGraph="@navigation/bottom_navigation" />
         -->
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="195dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="37dp"
-        android:fontFamily="casual"
-        android:text="username"
-        android:textAlignment="center"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/message_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.662"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.052" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="195dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="monospace"
-        android:text="firstname lastname"
-        android:textAlignment="center"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.662"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!--
       <com.google.android.material.bottomnavigation.BottomNavigationView
           android:id="@+id/bottom_nav"
@@ -132,57 +124,83 @@
           app:menu="@menu/bottom_navigation" />
    -->
 
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="195dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="37dp"
+        android:fontFamily="casual"
+        android:text="username"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toTopOf="@+id/message_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="195dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="monospace"
+        android:text="firstname lastname"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/message_profile"
-        android:layout_width="118dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="117dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:backgroundTint="@color/colorPrimary"
         android:fontFamily="monospace"
         android:text="Contact"
         android:textColorLink="@color/colorPrimary"
+        android:textSize="10sp"
         android:textStyle="bold"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/profiletext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/profiletext" />
 
     <ImageButton
         android:id="@+id/save_profile_button"
-        android:layout_width="171dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="13dp"
+        android:layout_width="115dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
         android:minHeight="48dp"
         android:src="@drawable/outline_edit_note_black_24dp"
-        app:layout_constraintBottom_toTopOf="@+id/profiletext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/message_profile"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/profiletext"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/logout_button"
-        android:layout_width="47dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:src="@drawable/outline_logout_black_24dp"
-        app:backgroundTint="@color/colorSecondaryText"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="140dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="monospace"
+        android:text="Edit Profile"
+        android:textColorLink="@color/colorPrimary"
+        android:textSize="10sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.958"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.013"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+        app:layout_constraintStart_toEndOf="@+id/save_profile_button"
+        app:layout_constraintTop_toBottomOf="@+id/profiletext" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
