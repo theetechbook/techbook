@@ -8,22 +8,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.latifah.techbook.R
 import com.latifah.techbook.adapters.ContactAdapter
 import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.database.models.ContactItem
-import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.databinding.ContactItemLayoutBinding
 import java.util.ArrayList
 import kotlin.random.Random
 
 
-class ContactFragment : Fragment(), ContactAdapter.OnItemClickListener {
+class ContactFragment : Fragment(), ContactAdapter.OnItemClickListener,
+    TechEventAdapter.OnItemClickListener {
     private var _binding: ContactItemLayoutBinding? = null
     private val binding get() = _binding!!
     private var dummyData = dummieData(30)
-    private var homePosts = mutableListOf<ContactItem>()
+    private var contactPosts = mutableListOf<ContactItem>()
     //private val adapter = ContactAdapter(this.dummyData)
    var bottomNavigationViewVisibility = View.VISIBLE
 
@@ -37,7 +36,7 @@ class ContactFragment : Fragment(), ContactAdapter.OnItemClickListener {
 
         dummyData = dummieData(50)
 
-        val adapter = ContactAdapter{contactItem -> (contactItem) }//(this)
+        val adapter = ContactAdapter(dummieData(20),this)
         binding.contactRcyV.adapter = adapter
         binding.contactRcyV.layoutManager = LinearLayoutManager(requireContext())
         binding.contactRcyV.setHasFixedSize(true)
@@ -104,7 +103,7 @@ class ContactFragment : Fragment(), ContactAdapter.OnItemClickListener {
 
 
     // override fun invoke(p1: ContactItem) {
-    //    TODO("Not yet implemented")
+    //
   //  }
 }
 

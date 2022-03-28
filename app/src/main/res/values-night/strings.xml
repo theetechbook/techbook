@@ -9,4 +9,6 @@
     <string name="com_latifah_techbook_ui_fragments_contactfragment">com.latifah.techbook.ui.fragments.ContactFragment</string>
     <string name="Contacts">Contacts</string>
     <string name="content_description_one">description</string>
+    <string name="user_favTitle">otherUser</string>
+    <string name="otherUser_description">otherUserDescription</string>
 </resources>

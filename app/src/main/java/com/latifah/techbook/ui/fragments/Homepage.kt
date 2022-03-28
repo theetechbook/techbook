@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.latifah.techbook.R
+import com.latifah.techbook.adapters.TechEventAdapter
 import com.latifah.techbook.adaptersimport.HomeAdapter
 import com.latifah.techbook.database.models.HomeData
 import com.latifah.techbook.database.models.Post
@@ -25,7 +25,8 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 
 @AndroidEntryPoint
-class Homepage : BaseFragment(), HomeAdapter.OnItemClickListener {
+class Homepage : BaseFragment(), HomeAdapter.OnItemClickListener,
+    TechEventAdapter.OnItemClickListener {
 
     private val viewModel: TechbookViewModel by viewModels()
 
