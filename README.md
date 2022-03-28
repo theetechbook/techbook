@@ -6,7 +6,7 @@
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
-5. [Built With](#-TechBooks-is-buildt with)
+5. [Built With](#-TechBook-is-built with)
 6. [Authors](#-Authors)
 7. [Running Locally](#-Running-Locally)
 8. [Phone Emulator](#-Phone-Emulator)
@@ -229,10 +229,10 @@ Likes
   - [Retrofit](https://square.github.io/retrofit/)
 
 ## 😋 Authors
--- [Robin B.](https://github.com/hyperiusblake)
-  - [Ana P.](https://github.com/kayabliss)
-  - [Cory G.](https://github.com/mlapresta)
-   - [Latifah P. ](https://github.com/latifahpresident)
+ - [Robin B.](https://github.com/hyperiusblake)
+ - [Ana P.](https://github.com/kayabliss)
+ - [Cory G.](https://github.com/mlapresta)
+ - [Latifah P. ](https://github.com/latifahpresident)
 
 ## 🖥 Running Locally
   - Clone the repository: 
