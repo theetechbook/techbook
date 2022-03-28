@@ -6,7 +6,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorBlack"
     android:paddingTop="40dp"
     tools:context=".ui.fragments.Profile">
 
@@ -24,26 +24,25 @@
 
         <ImageView
             android:id="@+id/avatar"
-            android:scaleType="centerCrop"
-            tools:src="@tools:sample/avatars"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 
 
-
     <!--    <ImageView-->
-<!--        android:id="@+id/avatar"-->
-<!--        android:layout_width="121dp"-->
-<!--        android:layout_height="112dp"-->
-<!--        android:layout_marginBottom="80dp"-->
-<!--        android:background="@color/colorBlack"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/profiletext"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.055"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        tools:src="@tools:sample/avatars" />-->
+    <!--        android:id="@+id/avatar"-->
+    <!--        android:layout_width="121dp"-->
+    <!--        android:layout_height="112dp"-->
+    <!--        android:layout_marginBottom="80dp"-->
+    <!--        android:background="@color/colorBlack"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/profiletext"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.055"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:src="@tools:sample/avatars" />-->
 
     <TextView
         android:id="@+id/location"
@@ -54,7 +53,7 @@
         android:fontFamily="casual"
         android:text="LOCATION"
         android:textAlignment="center"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +131,7 @@
         android:fontFamily="casual"
         android:text="username"
         android:textAlignment="center"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/message_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.87"
@@ -149,7 +148,7 @@
         android:fontFamily="monospace"
         android:text="firstname lastname"
         android:textAlignment="center"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,7 +157,7 @@
     <Button
         android:id="@+id/message_profile"
         android:layout_width="117dp"
-        android:layout_height="37dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:backgroundTint="@color/colorPrimary"
@@ -175,11 +174,12 @@
     <ImageButton
         android:id="@+id/save_profile_button"
         android:layout_width="115dp"
-        android:layout_height="32dp"
+        android:layout_height="48dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="24dp"
+        android:background="@color/colorBigText"
         android:minHeight="48dp"
-        android:src="@drawable/outline_edit_note_black_24dp"
+        android:src="?android:attr/textCheckMark"
         app:layout_constraintStart_toEndOf="@+id/message_profile"
         app:layout_constraintTop_toBottomOf="@+id/profiletext"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -187,7 +187,7 @@
     <Button
         android:id="@+id/btn_edit_profile"
         android:layout_width="140dp"
-        android:layout_height="36dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:backgroundTint="@color/colorPrimary"

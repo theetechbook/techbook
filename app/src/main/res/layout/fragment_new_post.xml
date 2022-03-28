@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     tools:context=".ui.fragments.NewPost">
 
     <ImageView
@@ -12,7 +13,7 @@
         android:layout_width="269dp"
         android:layout_height="259dp"
         android:layout_marginTop="64dp"
-        android:background="#673AB7"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,6 +38,7 @@
         android:gravity="start|top"
         android:hint="Add a caption!"
         android:inputType="textMultiLine"
+        android:textAlignment="center"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
