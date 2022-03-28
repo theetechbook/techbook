@@ -13,7 +13,6 @@ import com.latifah.techbook.database.TechbookDao
 import com.latifah.techbook.database.firebase.Firestore
 import com.latifah.techbook.database.models.Post
 import com.latifah.techbook.database.models.User
-import com.latifah.techbook.network.EventsResponse
 import com.latifah.techbook.network.TechEventApiService
 import com.latifah.techbook.ui.fragments.*
 import com.latifah.techbook.ui.viewmodels.TechbookViewModel
@@ -29,10 +28,6 @@ class MainRepository @Inject constructor(
     private val _userID = MutableLiveData<String>()
     val userID : LiveData<String> = _userID
     var firstName: String? = ""
-
-    suspend fun getEvents(): EventsResponse {
-        return techEventApiService.getEvents()
-    }
 
     fun registerUser(user: User, registerFragment : Register) {
         // db.collection("Users")  SEPARATION OF CONCERNS: This is a magic string and it's better to put these strings in a file. That way if it needs to be changed we only need to change it in one spot
@@ -64,7 +59,7 @@ class MainRepository @Inject constructor(
     }
 
     fun addPost(post: Post) {
-        db.collection("post")
+        db.collection(Constants.POST)
             .add(post)
             .addOnSuccessListener { documentReference ->
                 Log.d("add post", documentReference.id)
@@ -83,7 +78,7 @@ class MainRepository @Inject constructor(
 //            .addOnSuccessListener { result ->
 //                for (document in result) {
 //                    Log.d("GET ALL POSTS", "data: ${document.data}")
-//                    for (post in document.data.values) {
+//                    for (post in document.data.values) {      1
 //                        posts.add(post as String?)
 //                    }
 //                    viewModel.setPosts(posts, fragment)
@@ -97,23 +92,34 @@ class MainRepository @Inject constructor(
 
     fun getAllPosts(): CollectionReference {
         val posts = mutableListOf<String?>()
-        val collectionReference = db.collection("post")
+        val collectionReference = db.collection(Constants.POST)
         return collectionReference
-//            .get()
-//            .addOnSuccessListener { result ->
-//                for (document in result) {
-//                    Log.d("GET ALL POSTS", "data: ${document.data}")
-//                    for (post in document.data.values) {
-//                        posts.add(post as String?)
-//                    }
-//                    viewModel.setPosts(posts, fragment)
-//                }
-//                Log.d("GET ALL POSTS List", "data: ${posts}")
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.d("GET ALL POSTS", "Error getting documents: ", exception)
-//            }
     }
+
+
+
+    fun getUserInfo() : DocumentReference {
+        //return Firebase.auth.currentUser!!.email
+        var user: User? = null
+        val docRef = db.collection("users").document(getCurrentUserUID())
+
+        return docRef
+//        Log.d("MainRepo", "Starting on Success Listener")
+//        docRef.get().addOnSuccessListener { documentSnapshot ->
+//            user = documentSnapshot.toObject<User>()
+//            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
+//            firstName = user?.firstName
+//            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
+//            Log.d("firstName is set in onSuccess", "$firstName")
+//            return@addOnSuccessListener
+//        }
+//        Log.d("firstName is set in mainRepo", "$firstName")
+
+    }
+
+
+
+
 
     //For the posts on Profile Page
 //    fun getPostByUserId() {
@@ -131,7 +137,7 @@ class MainRepository @Inject constructor(
 //    }
 
     fun getPostByUserId(): Query {
-        val collectionReference = db.collection("post")
+        val collectionReference = db.collection(Constants.POST)
             .whereEqualTo("userUid", getCurrentUserUID())
             //.get()
 //            .addOnSuccessListener { result ->
@@ -149,22 +155,7 @@ class MainRepository @Inject constructor(
         return Firebase.auth.currentUser!!.uid
     }
 
-    fun getUserInfo(): DocumentReference {
-        //return Firebase.auth.currentUser!!.email
-        var user: User? = null
-        val docRef = db.collection("users").document(getCurrentUserUID())
-//        Log.d("MainRepo", "Starting on Success Listener")
-//        docRef.get().addOnSuccessListener { documentSnapshot ->
-//            user = documentSnapshot.toObject<User>()
-//            viewModel.setCurrentUserInfo(user?.firstName, user?.lastName, user?.userName, fragment)
-//            firstName = user?.firstName
-//            Log.d("setting user firstName", "$user, and first name is ${user?.firstName}")
-//            Log.d("firstName is set in onSuccess", "$firstName")
-//            return@addOnSuccessListener
-//        }
-//        Log.d("firstName is set in mainRepo", "$firstName")
-        return docRef
-    }
+
 
     fun getCurrentUserFirstName() : String? {
         //return Firebase.auth.currentUser!!.email
@@ -222,7 +213,27 @@ class MainRepository @Inject constructor(
         return user?.userName
     }
 
-//    suspend fun getLikedPosts(): MutableLiveData<ArrayList<LikedPost>> {
-//        return techbookDao.getLikedPosts()
-//    }
+    //Update user info
+    fun updateUserInfo(firstName : String, lastName : String, username : String, website : String, bio : String, email : String) {
+        val userRef = db.collection(Constants.USERS).document(getCurrentUserUID())
+        // Set the "firstName, lastName etc"  field of the user 'current uid'
+        userRef
+            .update(
+             "firstName", firstName,
+             "lastName", lastName,
+             "username", username,
+             "website", website,
+             "bio", bio,
+             "email", email
+             )
+            .addOnSuccessListener {
+                Log.d("edit user info success", "DocumentSnapshot successfully updated!")
+            }
+            .addOnFailureListener { e ->
+                Log.w("edit user info fail", "Error updating document", e)
+            }
+
+    }
+
+
 }
