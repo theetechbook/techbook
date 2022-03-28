@@ -1,5 +1,4 @@
-# techbook
-The House of Technologist - TechBook - README
+#The House of Technologist - TechBook - README
 ===
 
 # TechBook Mobile Application 
@@ -56,7 +55,7 @@ reserve events to guarantee a seat.
 - [x] [ 4 ] User can see a feed of recent user-generated photos
   - [X] Create posts feed fragment. (i.e. User Feed)
   - [x] User can see a feed of recent user-generated photos.
-- [x] [ 7 ] List of user's "favorited" recipes returned.
+- [x] [ 7 ] List of user's "favorited" post returned.
   - [X] Create "favorited" post fragment. (i.e. Saved Post)
   - [ ] List of user's "favorited" post returned.
 - [ ] [ 8 ] User can take a picture 
